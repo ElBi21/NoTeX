@@ -1,2 +1,2 @@
 # NoTeX
-LaTeX template used for my notes
+## Yeah sure, but what **IS** NoTeX?
