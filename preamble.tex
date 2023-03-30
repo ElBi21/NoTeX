@@ -1,0 +1,640 @@
+% =======================================
+%           Document constructor
+% =======================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                Packages               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage{makecell}
+\usepackage{wrapfig}
+\usepackage{esvect}
+\usepackage[most]{tcolorbox}
+\usepackage{listings}
+\usepackage{geometry}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{physics}
+\usepackage[normalem]{ulem}
+\usepackage[table]{colortbl}
+\usepackage{tikz}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage[type={CC}, modifier={by-nc-nd}, version={4.0},]{doclicense}
+\usepackage[font = footnotesize]{caption}
+\usepackage[explicit]{titlesec}
+\usepackage{afterpage}
+\usepackage{anyfontsize}
+\usepackage{xfrac}
+\usepackage{nicefrac}
+\usepackage{longtable}
+\usepackage[outline]{contour}
+\usepackage{everypage}
+\usepackage{calc}
+\usepackage{minitoc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              Custom Fonts             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[default]{fouriernc}
+\usepackage{lato}
+\usepackage[T1]{fontenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Custom Colors             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%============Document============
+\definecolor{doc}{HTML}{6e000d}
+%===========Main color===========
+
+\definecolor{theoryLINE}{HTML}{6682f1}
+\definecolor{practiceLINE}{HTML}{fecf54}
+
+\definecolor{lemmaBG}{HTML}{b1e0e8}
+\definecolor{lemmaTitleBG}{HTML}{c1e5eb}
+
+\definecolor{theoremBG}{HTML}{9adfdd}
+\definecolor{theoremTitleBG}{HTML}{a8e3e1}
+
+\definecolor{definitionBG}{HTML}{97bcea}
+\definecolor{definitionTitleBG}{HTML}{97cbea}
+
+\definecolor{corollaryBG}{HTML}{6da2ec}
+\definecolor{corollaryTitleBG}{HTML}{89b8fa}
+
+\definecolor{proofBG}{HTML}{d8c3f0}
+\definecolor{proofTitleBG}{HTML}{ceb2ed}
+
+\definecolor{exerciseBG}{HTML}{faf0bc}
+\definecolor{exerciseTitleBG}{HTML}{fff2af}
+
+\definecolor{exampleBG}{HTML}{ffd39a}
+\definecolor{exampleTitleBG}{HTML}{ffe3be}
+
+\definecolor{solutionBG}{HTML}{c4f8e1}
+\definecolor{solutionTitleBG}{HTML}{9cffd3}
+
+\definecolor{remarkBG}{HTML}{ee9595}
+\definecolor{remarkLINE}{HTML}{9d1830}
+\definecolor{remarkTitleBG}{HTML}{feb7b7}
+
+\definecolor{curiosityBG}{HTML}{97e687}
+\definecolor{curiosityLINE}{HTML}{43a82e}
+\definecolor{curiosityTitleBG}{HTML}{c0f5b5}
+
+\definecolor{codeBG}{HTML}{353738}
+\definecolor{codeLINE}{HTML}{24292b}
+\definecolor{codeTitleBG}{HTML}{5b5f61}
+
+\definecolor{gray1}{HTML}{3a3a3a}
+\definecolor{gray2}{HTML}{565656}
+\definecolor{gray3}{HTML}{787878}
+\definecolor{gray4}{HTML}{a1a1a1}
+\definecolor{gray5}{HTML}{cacaca}
+
+\definecolor{extLinksColor}{HTML}{4eacc3}
+\definecolor{intLinksColor}{HTML}{0e1179}
+
+\definecolor{definiton_green}{HTML}{3ACE59}
+\definecolor{custom_cyan}{HTML}{19A6B4}
+
+\definecolor{codeBG}{HTML}{353738}
+\definecolor{codeLINE}{HTML}{24292b}
+\definecolor{codeTitleBG}{HTML}{5b5f61}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{HTML}{353738}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           Packages commands           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=intLinksColor,
+    anchorcolor=intLinksColor,
+    urlcolor=extLinksColor,}
+
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=25mm,
+    right=25mm,
+    top=20mm,
+    bottom=25mm
+    }
+
+\contourlength{3pt}
+
+\renewcommand\cellgape{\Gape[8pt]}
+\renewcommand{\cellalign}{cc}
+\pgfplotsset{width=10cm,compat=1.9}
+
+\fboxsep=10pt
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\linespread{1.45}\footnotesize\color{white},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+}
+
+\lstset{style=mystyle}
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+\fancypagestyle{fancy}{%
+    \fancyhf{}
+    \fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{ElBi21} \copyright 2022-2023 - Please refer to the \href[https://github.com/ElBi21/NoTeX]{official repository} if you want to share this material \normalsize}
+    \fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyhead[L]{\small Page \large \textbf{\thepage} \normalsize}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% Footer setting for chapter pages %
+
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{ElBi21} \copyright 2022-2023 - Please refer to the \href[https://github.com/ElBi21/NoTeX]{official repository} if you want to share this material \normalsize}
+    \fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyhead[L]{\small Page \large \textbf{\thepage} \normalsize}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\captionsetup{justification = centering}
+
+\titlespacing{\chapter}{0pt}{0pt}{60pt}
+
+\titleformat{\chapter}[display]{\filright\normalfont\huge\bfseries\color{white}}{
+\makebox[0pt][l]{
+    \raisebox{-\totalheight}[-50pt][0pt]{
+    \begin{center}
+        \begin{tikzpicture}[remember picture, overlay, transform shape]
+            \draw[fill = doc, color = doc] (15.45, 0.81) circle (80pt);
+            \draw[fill = doc, color = doc] (-8, -2) rectangle (15.45, 6);
+            \draw[fill = doc, color = doc] (15.45, 0.8) rectangle (19, 6);
+            \draw[fill = doc, color = doc] (-0.2, -1.05) circle (1pt) node [anchor = south] {\color{white}\fontsize{120pt}{120pt}\selectfont C};
+            \draw[color = white, thick] (1.25, -0.2) -- (3.20, -0.2);
+            \draw[color = white, thick] (4.05, -0.2) -- (8.8, -0.2);
+        \end{tikzpicture}
+    \end{center}
+    }
+}\quad \quad \fontsize{50pt}{50pt}\selectfont hapter \thechapter}{0pt}{\quad \quad #1}
+
+\titleformat{\section}[block]
+{\hspace{-75pt}\filright\normalfont\fontsize{20pt}{20pt}\selectfont\bfseries}{
+\makebox[0pt][l]{
+    \raisebox{-\totalheight}[-50pt][0pt]{
+    \begin{center}
+        \begin{tikzpicture}[remember picture, overlay, transform shape]
+            \draw[fill = doc, color = doc] (-0.5, -0.1) rectangle (2.2, 0.6);
+        \end{tikzpicture}
+    \end{center}
+    }
+}
+\textcolor{white}{\thesection}
+}{65pt-\widthof{\thesection}}{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Boxes section             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtcolorbox{lemma}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\textbf{\fontfamily{ppl}\selectfont{Lemma {#1}:}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{theoryLINE},
+    colback=lemmaBG,
+    colframe=lemmaBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=lemmaTitleBG,
+        borderline west={5pt}{-0.5pt}{theoryLINE},
+    },
+}
+
+\newtcolorbox{theorem}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Theorem:} {#1}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{theoryLINE},
+    colback=theoremBG,
+    colframe=theoremBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=theoremTitleBG,
+        borderline west={5pt}{-0.5pt}{theoryLINE},
+    },
+}
+
+\newtcolorbox{definition}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Definition:} {#1}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{theoryLINE},
+    colback=definitionBG,
+    colframe=definitionBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=definitionTitleBG,
+        borderline west={5pt}{-0.5pt}{theoryLINE},
+    },
+}
+
+\newtcolorbox{proof}[1]{enhanced,
+    enlarge top initially by=-6mm,
+    boxsep=0.25ex,
+    arc=0mm,
+    title=\fontfamily{ppl}\selectfont{\textbf{Proof of the {#1}}},
+    coltitle=black,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{theoryLINE},
+    colback=proofBG,
+    colframe=proofBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=proofTitleBG,
+        colframe=proofBG,
+        borderline west={5pt}{-0.5pt}{theoryLINE},
+    },
+}
+
+\newtcolorbox{corollary}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Corollary:} {#1}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{theoryLINE},
+    colback=corollaryBG,
+    colframe=corollaryBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=corollaryTitleBG,
+        borderline west={5pt}{-0.5pt}{theoryLINE},
+    },
+}
+
+\newtcolorbox{exercise}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Exercise {#1}}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{practiceLINE},
+    colback=exerciseBG,
+    colframe=exerciseBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=exerciseTitleBG,
+        borderline west={5pt}{-0.5pt}{practiceLINE},
+    },
+}
+
+\newtcolorbox{example}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Example {#1}}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{practiceLINE},
+    colback=exampleBG,
+    colframe=exampleBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=exampleTitleBG,
+        borderline west={5pt}{-0.5pt}{practiceLINE},
+    },
+}
+
+\newtcolorbox{solution}[1]{enhanced,
+    enlarge top initially by=-6mm,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Solution to Exercise {#1}}},
+    coltitle=black,
+    arc=1mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{practiceLINE},
+    colback=solutionBG,
+    colframe=solutionBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=solutionTitleBG,
+        borderline west={5pt}{-0.5pt}{practiceLINE},
+    },
+}
+
+\newtcolorbox{remark}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Remark:} {#1}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{remarkLINE},
+    colback=remarkBG,
+    colframe=remarkBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=remarkTitleBG,
+        borderline west={5pt}{-0.5pt}{remarkLINE},
+    },
+}
+
+\newtcolorbox{curiosity}[1]{enhanced,
+    boxsep=0.25ex,
+    title=\fontfamily{ppl}\selectfont{\textbf{Curiosity:} {#1}},
+    coltitle=black,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{curiosityLINE},
+    colback=curiosityBG,
+    colframe=curiosityBG,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=curiosityTitleBG,
+        borderline west={5pt}{-0.5pt}{curiosityLINE},
+    },
+}
+
+\newtcolorbox{codebox}[1]{enhanced,
+    boxsep=0.10ex,
+    title=\textbf{{#1}},
+    coltitle=white,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={1pt}{-0.5pt}{codeLINE},
+    borderline east={1pt}{-0.5pt}{codeLINE},
+    borderline south={1pt}{-0.5pt}{codeLINE},
+    borderline north={1pt}{-0.5pt}{codeLINE},
+    colback=backcolour,
+    colframe=backcolour,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    attach boxed title to top left ={
+        xshift=5pt,
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=codeTitleBG,
+    },
+}
+
+\newtcolorbox{summary}{enhanced,
+    arc=0mm,
+    rounded corners=all,
+    borderline west={5pt}{-0.5pt}{doc},
+    colback=doc!80,
+    colframe=doc,
+    enhanced,
+    breakable,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    enlarge left by=-2.5cm,
+    enlarge top by=-0.9cm,
+    width=0.45\linewidth,
+    attach boxed title to top left ={
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    halign title=left,
+    boxed title style={
+        colback=doc,
+        borderline west={5pt}{-0.5pt}{doc},
+    },
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Custom commands            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%==== Fonts commands ====%
+\newcommand{\italic}[1]{\textit{#1}}
+\newcommand{\titleFont}[1]{{\fontfamily{lato}\selectfont{#1}}}
+\newcommand{\code}[1]{{\fontfamily{qcr}\selectfont{#1}}}
+
+%=== Symbols commands ===%
+\newcommand*\Heq{\ensuremath{\overset{\kern2pt H}{=}}}
+\newcommand*\HRightarrow{\ensuremath{\overset{\kern-13pt H}{$\Longrightarrow$}}}
+\newcommand{\eq}{\; = \;}
+
+%=== Chapter commands ===%
+\newcommand{\summarybox}[1]{
+\makebox[0pt][l]{
+    \centering
+    \raisebox{-\totalheight}[35pt][0pt]{  
+        \begin{tikzpicture}[remember picture, overlay]
+            \draw[fill=doc, color=doc] (-3.25, 0) rectangle (3.965, 3);
+            \draw[fill=doc, color=doc] (0.28, 0.75) circle (0.1pt) node [anchor = south] {\fontsize{22pt}{22pt}\selectfont \textcolor{white}{\textbf{Summary}}};
+            \draw[thick, color=white, fill=white] (-2.15, 0.95) -- (1.6, 0.95);
+            \draw[thick, color=white, fill=white] (1.9, 0.95) -- (2.65, 0.95);
+            \draw[fill=doc, color=doc] (3.9, 1) rectangle (6, 3);
+            \draw[fill=white, color=white] (6, 0.95) circle (57.5pt);
+        \end{tikzpicture}
+    }
+}
+\begin{summary}
+#1
+\end{summary}
+}
+
+%=== Geometry commands ===%
+\newcommand{\summarygeom}{\newgeometry{
+    a4paper,
+    total={170mm,257mm},
+    left=0mm,
+    right=0mm,
+    top=20mm,
+    bottom=25mm
+    }}
+
+\newcommand{\normalgeom}{\newgeometry{
+    a4paper,
+    total={170mm,257mm},
+    left=25mm,
+    right=25mm,
+    top=20mm,
+    bottom=25mm
+    }}
+
+\newcommand\aty[2]{\AddThispageHook{\raisebox{\dimexpr\PageTopMargin+\voffset-#1\relax}{#2}}}
+
+\newcommand\atx[2]{\AddThispageHook{\smash{\hspace*{\dimexpr-\PageLeftMargin-\hoffset+#1\relax}{#2}}}}
+
+\newcommand\atxy[3]{\AddThispageHook{\smash{\hspace*{\dimexpr-\PageLeftMargin-\hoffset+#1\relax}\raisebox{\dimexpr\PageTopMargin+\voffset-#2\relax}{#3}}}}
+
+\makeatletter
+\def\@hspace#1{\begingroup\setlength\dimen@{#1}\hskip\dimen@\endgroup}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           Table of contents           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\contentsmargin{0cm}
+\titlecontents{chapter}[3.7pc]
+{\addvspace{30pt}
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=doc!90,draw=doc!90] (-7, -0.1) rectangle (-0.12, 0.5);
+        \draw[fill=white!60,draw=white!60] (-0.6, -0.15) rectangle (-0.10, 0.55);
+		\pgftext[left,x=-3.5cm,y=0.2cm]{\color{white}\Large\sc\bfseries Chapter\ \color{doc}\Large\sc\bfseries \thecontentslabel};%
+	\end{tikzpicture}\color{doc!90} $\quad \blacktriangleright \;$ \large\sc\bfseries}
+{}
+{}
+{\;\titlerule\;\large\sc\bfseries Page \thecontentspage
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=doc!90,draw=doc!90] (2pt,0) rectangle (4,0.1pt);
+	\end{tikzpicture}}
+ 
+\titlecontents{section}[3.7pc]
+{\addvspace{2pt}}
+{\contentslabel[\thecontentslabel]{2pc}}
+{}
+{\hfill\small \thecontentspage}
+[]
+
+\titlecontents*{subsection}[3.7pc]
+{\addvspace{-1pt}\small}
+{}
+{}
+{\ --- \small\thecontentspage}
+[ \textbullet\ ][]
+
+\makeatletter
+\renewcommand{\tableofcontents}{
+	\chapter*{
+	  \vspace*{-30\p@}
+	  \begin{tikzpicture}[remember picture, overlay]
+		  \pgftext[right,x=15cm,y=0.2cm]{\color{doc!90} \Huge\sc\bfseries \contentsname};
+		  \draw[fill=doc!90,draw=doc!90] (13,-.75) rectangle (20,1);
+		  \clip (13,-.75) rectangle (20,1);
+		  \pgftext[right,x=15cm,y=0.2cm]{\color{white} \Huge\sc\bfseries \contentsname};
+	  \end{tikzpicture}}
+	\@starttoc{toc}}
+\makeatother
