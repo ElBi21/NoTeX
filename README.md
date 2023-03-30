@@ -1,6 +1,6 @@
 # NoTeX
 
-_A custom template for taking notes_
+_A custom LaTeX template for taking notes_
 
 ---
 
@@ -90,6 +90,8 @@ The structure itself is pretty self-explanatory.
 
 ---
 
-## 3) Special Thanks
+## 3) Special Thanks ❤️
 
 I'd like to thank [SeniorMars](https://github.com/SeniorMars) for both his [repository](https://github.com/SeniorMars/dotfiles) and his [video](https://www.youtube.com/watch?v=DOtM1mrWjUo) over the way he takes notes with _LaTeX_, which inspired me to build my own template and taking notes with it. Oh btw, you should thank [Daniel Falbo](https://github.com/danielfalbo) too, since if he didn't ask me "_Hey, why don't you update your notes on GitHub?_" then all this material won't be here.
+
+If you want to contribute to the template, just feel free to do so! It's not guaranteed that your contribution will be implemented, but it could be worth a shot!
