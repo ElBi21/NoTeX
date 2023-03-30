@@ -33,3 +33,51 @@ whereas:
 + **📄 main.tex**: is the main file, where all the other files are imported (such as the `preamble` and the `title`);
 + **📄 preamble.tex**: is the preamble file, where all the project's settings are stored (so where all the packages are imported, where all the commands are defined, etc... If you want to change something of the notes, you should do it here);
 + **📄 title.tex**: is the file with the first page's code.
+
+<br></br>
+I highly suggest you to make a file for each chapter (the class of the document is `report`, so the `\chapter` command can be used) and then include it into the `main.tex`. An example of a simple project structure could be:
+<br></br>
+`> ./chapters/chap21_whatever.tex`:
+```latex
+\chapter{NoTeX is nice}
+
+\noindent In this chapter we are going to show how NoTeX is a nice template [...] so now we can conclude by saying that we should all use it.
+```
+
+`> ./main.tex`:
+```latex
+\document[12pt, letterpaper]{report}
+
+% Assume that here we import preamble.tex and title.tex
+
+\begin{document}
+
+% Assume that here we place the table of contents and the title.
+% From the next line we'll import all the chapters
+
+% [...]
+
+\input{chapters/chap21_whatever.tex}
+\pagebreak
+
+\input{chapters/chap22_secretChap.tex}
+\pagebreak
+
+\input{chapters/appendix.tex}
+
+\end{document}
+```
+
+The structure that I suggest you to follow is to first include a file with the `\input` command, then use a `\pagebreak` to format it evenly. Little tip: suppose that `appendix.tex` is our last chapter: notice how there is no `\pagebreak`: this is because otherwise we would have a blank page at the end. I suggest you to break between each chapter in the `main.tex` file just to keep everything in order and have a better overview of the project.
+
+---
+
+## 2) Customization of the project
+
+In order to customize the project you have to edit the `preamble.tex` file
+
+---
+
+## 3) Special Thanks
+
+I'd like to thank [SeniorMars](https://github.com/SeniorMars) for both his [repository](https://github.com/SeniorMars/dotfiles) and his [video](https://www.youtube.com/watch?v=DOtM1mrWjUo) over the way he takes notes with _LaTeX_, which inspired me to build my own template and taking notes with it. Oh btw, you should thank [Daniel Falbo](https://github.com/danielfalbo) too, since if he didn't ask me "_Hey, why don't you update your notes on GitHub?_" then all this material won't be here.
