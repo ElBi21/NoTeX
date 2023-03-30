@@ -10,7 +10,7 @@ The template is under GPL license (until I will find a CC 4.0 license file to re
 
 The template is based on this structure:
 
-``
+```
 ├ 📁 chapters
 │ ├ 📄 chap0_license.tex
 │ ├ 📄 chap1_lorem.tex
@@ -19,4 +19,4 @@ The template is based on this structure:
 ├ 📄 main.tex
 ├ 📄 preamble.tex
 ├ 📄 title.tex
-``
+```
