@@ -98,19 +98,74 @@ The structure itself is pretty self-explanatory.
 
 You can see that in the file there are 2 types of boxes: **theory** boxes and **practice** boxes. The **theory boxes** are recognisable by the **blue** line on the left of the boxes, while the **practice boxes** have a **yellow** line. **Remark** and **Curiosity** boxes are "*special*", so they have their own colors. The **Question** box uses the main document's color (`doc`). Here is a list of all the boxes officially working:
 
-| Box cathegory | Box name | Relative code | Notes |
-|-|-|-|-|
-| **Theory** | Definition | <pre>\begin{definition}{customName}<br>  [...]<br>\end{definition}</pre> | |
-| **Theory** | Theorem | <pre>\begin{theorem}{customName}<br>  [...]<br>\end{theorem}</pre> | |
-| **Theory** | Corollary | <pre>\begin{corollary}{customName}<br>  [...]<br>\end{corollary}</pre> | |
-| **Theory** | Lemma | <pre>\begin{lemma}{customName}<br>  [...]<br>\end{lemma}</pre> | |
-| **Theory** | Proof | <pre>\begin{proof}<br>  [...]<br>\end{proof}</pre> | <p align="center">*Must be used straight after <br>another **Theory** box. An example can<br>be found at the end of this section*</p> |
-| **Practice** | Example | <pre>\begin{example}{customName}<br>  [...]<br>\end{example}</pre> | |
-| **Practice** | Exercise | <pre>\begin{exercise}{customName}<br>  [...]<br>\end{exercise}</pre> | |
-| **Practice** | Solution | <pre>\begin{solution}<br>  [...]<br>\end{solution}</pre> | <p align="center">*Similarly to the `proof` box,<br> it must be used after a **Practice** box*</p> |
-| **Remark** | Remark | <pre>\begin{remark}{customName}<br>  [...]<br>\end{remark}</pre> | |
-| **Curiosity** | Curiosity | <pre>\begin{curiosity}{customName}<br>  [...]<br>\end{curiosity}</pre> | |
-| **Question** | Question | <pre>\begin{question}<br>  [...]<br>\end{question}</pre> | |
+<table align="center">
+  <tr>
+    <th>Box cathegory</th>
+    <th>Box name</th>
+    <th>Relative code</th>
+    <th>Notes</th>
+  </tr>
+  <tr>
+    <td align="center" rowspan="5"><b>Theory</b></td>
+    <td align="center">Definition</td>
+    <td><pre>\begin{definition}{customName}<br>  [...]<br>\end{definition}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center">Theorem</td>
+    <td><pre>\begin{theorem}{customName}<br>  [...]<br>\end{theorem}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center">Corollary</td>
+    <td><pre>\begin{corollary}{customName}<br>  [...]<br>\end{corollary}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center">Lemma</td>
+    <td><pre>\begin{lemma}{customName}<br>  [...]<br>\end{lemma}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center">Proof</td>
+    <td><pre>\begin{proof}<br>  [...]<br>\end{proof}</pre></td>
+    <td><p align="center"><i>Must be used straight after <br>another <b>Theory</b> box. An example can<br>be found at the end of this section</i></p></td>
+  </tr>
+  <tr>
+    <td align="center" rowspan="3"><b>Practice</b></td>
+    <td align="center">Example</td>
+    <td><pre>\begin{example}{customName}<br>  [...]<br>\end{example}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center">Exercise</td>
+    <td><pre>\begin{exercise}{customName}<br>  [...]<br>\end{exercise}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center">Solution</td>
+    <td><pre>\begin{solution}<br>  [...]<br>\end{solution}</pre></td>
+    <td><p align="center"><i>Similarly to the <b>proof</b> box,<br> it must be used after a <b>Practice</b> box</i></p></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Remark</b></td>
+    <td align="center">Remark</td>
+    <td><pre>\begin{remark}{customName}<br>  [...]<br>\end{remark}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Curiosity</b></td>
+    <td align="center">Curiosity</td>
+    <td><pre>\begin{curiosity}{customName}<br>  [...]<br>\end{curiosity}</pre></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Question</b></td>
+    <td align="center">Question</td>
+    <td><pre>\begin{question}<br>  [...]<br>\end{question}</pre></td>
+    <td></td>
+  </tr>
+</table>
 
 <br><br>
 Two examples for using both the `proof` and the `solution` boxes:
