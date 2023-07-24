@@ -1,6 +1,6 @@
 <h1 align="center">NoTeX</h1>
 
-<p align="center"><i>A custom LaTeX template for taking notes • <code>v1.2</code></i></p>
+<p align="center"><i>A custom LaTeX template for taking notes • <code>v1.3</code></i></p>
 
 ---
 
