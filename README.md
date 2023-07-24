@@ -17,25 +17,49 @@ The template is under GPL license (until I will find a CC 4.0 license file to re
 How does the template work? In order to answer such question is worth mentioning the file structure. The template is based on this structure here:
 
 ```
+├ 📁 assets
+│ ├ 📁 images
+│ │ └ 📄 ...
+│ │
+│ ├ 📁 preamble
+│ │ ├ 📄 boxes.tex
+│ │ ├ 📄 colors.tex
+│ │ ├ 📄 custom_commands.tex
+│ │ ├ 📄 packages_setups.tex
+│ │ ├ 📄 packages.tex
+│ │ ├ 📄 preamble_assembler.tex
+│ │ ├ 📄 section_styles.tex
+│ │ └ 📄 table_of_contents.tex
+│ │
+│ ├ 📄 macros.tex
+│ └ 📄 title.tex
+│
 ├ 📁 chapters
 │ ├ 📄 chap0_license.tex
 │ ├ 📄 chap1_lorem.tex
 │ ├ 📄 chap2_ipsum.tex
 │ └ 📄 ...
 │
-├ 📄 macro.tex
 ├ 📄 main.tex
-├ 📄 preamble.tex
-├ 📄 title.tex
 └ 📄 NoTeX.pdf
 ```
 
 whereas:
++ **📁 assets**: is the folder with all the elements that are needed to build the PDF (such as images, packages, settings, etc...):
+  + **📁 ./images**: is the folder for all the images used in the PDF. It's not necessary to put your images here, but it's highly suggested in order to maintain a clear environment;
+  + **📁 ./preamble**: it's the folder with all the preamble settings (packages, their settings, the custom boxes, etc...):
+    + **📄 boxes.tex**: this file contains all the commands for the boxes;
+    + **📄 colors.tex**: this file contains all the custom colors;
+    + **📄 custom_commands.tex**: this file contains all the custom commands needed for the packages / their relative settings;
+    + **📄 packages_setups.tex**: this file contains all the settings for all the packages;
+    + **📄 packages.tex**: this file queries for all the needed packages;
+    + **📄 preamble.assembler.tex**: this file connects all the other files in the `preamble` folder;
+    + **📄 section_styles.tex**: this file has all the settings relative to the style of the `chapter`, `section` and `subsection` elements;
+    + **📄 table_of_contents.tex**: this file contains the settings for the table of contents. Heavily inspired by [SeniorMars](https://github.com/SeniorMars)' template;
+  + **📄 macros.tex**: is a file made to store all the `macros` relative to the document;
+  + **📄 title.tex**: is the file with the first page's code;
 + **📁 chapters**: is the folder with all the chapters (the name of the files can also not necessarily be `chapXX_lorem_ipsum.tex`);
-+ **📄 macros.tex**: is a file made to store all the `macros` relative to the document;
 + **📄 main.tex**: is the main file, where all the other files are imported (such as the `preamble` and the `title`);
-+ **📄 preamble.tex**: is the preamble file, where all the project's settings are stored (so where all the packages are imported, where all the commands are defined, etc... If you want to change something of the notes, you should do it here);
-+ **📄 title.tex**: is the file with the first page's code;
 + **📄 NoTeX.pdf**: the output of the `main.tex` file.
 
 <br></br>
@@ -80,17 +104,19 @@ The structure that I suggest you to follow is to first include a file with the `
 
 ## 2) Customization of the project
 
-In order to customize the project you have to edit the `preamble.tex` file. The file is divided in multiple parts:
-1) the `packages` section;
-2) the `custom colors` section;
-3) the `commands` related to the `packages`;
-4) the `boxes` section;
-5) the `toc` command;
+In order to customize the project you have to edit the files inside the `preamble` folder. The folder contains multiple files:
+1) the `packages` file;
+2) the `colors` file;
+3) the `packages_setups` file, related to the `packages`' settings;
+4) the `section_styles` file, with all the commands relative to the `Chapter`, `Section` and `Subsection` elements;
+5) the `boxes` file, which contains all the commands used to generate the boxes;
+6) the `custom_commands` file, where all the custom commands needed for the packages' settings are stored;
+7) the `table_of_contents` file, with the table of contents' commands;
 
-If you aim to change the main color of the file, just edit the `doc` color. A large number of elements depend on such color, like the **Table of Contents**, the **Chapters' first page**, or the `question` custom box.
+If you aim to change the main color of the file, just edit the `doc` color in the `colors.tex` file. A large number of elements depend on such color, like the **Table of Contents**, the **Chapters' first page**, or the `question` custom box.
 
-Further customization can be done by editing the `macros.tex` file, where all the macros (and custom commands) are stored.
-The structure itself is pretty self-explanatory.
+Further customization can be done by editing the `macros.tex` file, where all the macros (and custom commands) are stored, and the `title.tex` file, which handles the title page of the document.
+The structure itself of the project is pretty self-explanatory.
 
 ---
 

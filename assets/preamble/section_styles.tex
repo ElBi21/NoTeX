@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Sections styles            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{\thechapter.\ #1}{}}
+
+\fancypagestyle{fancy}{%
+    \fancyhf{}
+    \fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{Leonardo Biason} \copyright 2022-2023 - Please refer to the \hyperref[chap:introduction]{introduction} if you want to share this material \normalsize}
+    \fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyhead[L]{\small Page \large \textbf{\thepage} \normalsize}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% Below is the footer setting for chapter pages %
+
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{Leonardo Biason} \copyright 2022-2023 - Please refer to the \hyperref[chap:introduction]{introduction} if you want to share this material \normalsize}
+    \fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyhead[L]{\small Page \large \textbf{\thepage} \normalsize}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\captionsetup{justification = centering}
+
+% Normally one line should be 15.5 in a tikzpicture
+
+\titlespacing{\chapter}{0pt}{0pt}{60pt}
+
+\titleformat{\chapter}[display]{\filright\normalfont\huge\bfseries\color{white}}{
+\makebox[0pt][l]{%          %
+    \raisebox{-\totalheight}[-50pt][0pt]{% 
+    \begin{center}
+        \begin{tikzpicture}[remember picture, overlay, transform shape]
+            \draw[fill = doc, color = doc] (15.45, 0.81) circle (80pt);
+            \draw[fill = doc, color = doc] (-8, -2) rectangle (15.45, 6);
+            \draw[fill = doc, color = doc] (15.45, 0.8) rectangle (19, 6);
+            \draw[fill = doc, color = doc] (-0.2, -1.05) circle (1pt) node [anchor = south] {\color{white}\fontsize{120pt}{120pt}\selectfont C};
+            \draw[color = white, thick] (1.25, -0.2) -- (3.35, -0.2);
+            \draw[color = white, thick] (4.25, -0.2) -- (9, -0.2);
+        \end{tikzpicture}
+    \end{center}
+    }
+}\quad \quad \fontsize{50pt}{50pt}\selectfont hapter \thechapter}{0pt}{\quad \quad #1} % #1 stands for the Chapter name
+
+\titleformat{\section}[block]
+{\hspace{-75pt}\filright\normalfont\fontsize{20pt}{20pt}\selectfont\bfseries}{
+\makebox[0pt][l]{%          %
+    \raisebox{-\totalheight}[-50pt][0pt]{% 
+    \begin{center}
+        \begin{tikzpicture}[remember picture, overlay, transform shape]
+            \draw[fill = doc, color = doc] (-0.5, -0.1) rectangle (2.2, 0.6);
+        \end{tikzpicture}
+    \end{center}
+    }
+}
+\textcolor{white}{\thesection}
+}{60pt-\widthof{\thesection}}{#1} % #1 stands for the Section name
+
+\titleformat{\subsection}[block]
+{\hspace{-75pt}\filright\normalfont\fontsize{18pt}{18pt}\selectfont\bfseries}{
+\textcolor{doc}{\thesubsection}
+\makebox[0pt][l]{%          %
+    \raisebox{-\totalheight}[-50pt][0pt]{% 
+    \begin{center}
+        \begin{tikzpicture}[remember picture, overlay, transform shape]
+            \draw[fill = doc, color = doc] (-2.175, 0.025) rectangle (0.525, 0.395);
+            \draw[fill = doc, color = doc] (0.525, 0.21) circle (5.25pt);
+            \begin{scope}
+                \clip (-2.175, 0.025) rectangle (0.525, 0.395);
+                \node[color=white, line width = 0pt] at (-1.007, 0.21) {\fontsize{18pt}{18pt}\selectfont\bfseries\thesubsection};
+            \end{scope}
+        \end{tikzpicture}
+    \end{center}
+    }
+}
+}{62pt-\widthof{\thesubsection}}{#1} % #1 stands for the Section name

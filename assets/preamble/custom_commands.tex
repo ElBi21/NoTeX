@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            Custom commands            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%==== Fonts commands ====%
+\newcommand{\italic}[1]{\textit{#1}}
+\newcommand{\titleFont}[1]{{\fontfamily{lato}\selectfont{#1}}}
+\newcommand{\code}[1]{{\fontfamily{qcr}\selectfont{#1}}}
+
+%=== Chapter commands ===%
+\newcommand{\summarybox}[1]{
+\makebox[0pt][l]{
+    \centering
+    \raisebox{-\totalheight}[35pt][0pt]{%     
+        \begin{tikzpicture}[remember picture, overlay]
+            \draw[fill=doc, color=doc] (-3.25, 0) rectangle (3.965, 3);
+            \draw[fill=doc, color=doc] (0.28, 0.75) circle (0.1pt) node [anchor = south] {\fontsize{22pt}{22pt}\selectfont \textcolor{white}{\textbf{Summary}}};
+            \draw[thick, color=white, fill=white] (-2.15, 0.95) -- (1.6, 0.95);
+            \draw[thick, color=white, fill=white] (1.9, 0.95) -- (2.65, 0.95);
+            \draw[fill=doc, color=doc] (3.9, 1) rectangle (6, 3);
+            \draw[fill=white, color=white] (6, 0.95) circle (57.5pt);
+        \end{tikzpicture}
+    }
+}
+\begin{summary}
+#1
+\end{summary}
+
+}
+
+%=== Geometry commands ===%
+\newcommand{\summarygeom}{\newgeometry{
+    a4paper,
+    total={170mm,257mm},
+    left=0mm,
+    right=0mm,
+    top=20mm,
+    bottom=25mm
+    }}
+
+\newcommand{\normalgeom}{\newgeometry{
+    a4paper,
+    total={170mm,257mm},
+    left=25mm,
+    right=25mm,
+    top=20mm,
+    bottom=25mm
+    }}
+
+\newcommand\aty[2]{\AddThispageHook{\raisebox{\dimexpr\PageTopMargin+\voffset-#1\relax}{#2}}}
+
+\newcommand\atx[2]{\AddThispageHook{\smash{\hspace*{\dimexpr-\PageLeftMargin-\hoffset+#1\relax}{#2}}}}
+
+\newcommand\atxy[3]{\AddThispageHook{\smash{\hspace*{\dimexpr-\PageLeftMargin-\hoffset+#1\relax}\raisebox{\dimexpr\PageTopMargin+\voffset-#2\relax}{#3}}}}
+
+\makeatletter
+\def\@hspace#1{\begingroup\setlength\dimen@{#1}\hskip\dimen@\endgroup}
+\makeatother
