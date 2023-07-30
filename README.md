@@ -46,8 +46,8 @@ How does the template work? In order to answer such question is worth mentioning
 
 whereas:
 + **📁 assets**: is the folder with all the elements that are needed to build the PDF (such as images, packages, settings, etc...):
-  + **📁 ./images**: is the folder for all the images used in the PDF. It's not necessary to put your images here, but it's highly suggested in order to maintain a clear environment;
-  + **📁 ./preamble**: it's the folder with all the preamble settings (packages, their settings, the custom boxes, etc...):
+  + **📁 images**: is the folder for all the images used in the PDF. It's not necessary to put your images here, but it's highly suggested in order to maintain a clear environment;
+  + **📁 preamble**: it's the folder with all the preamble settings (packages, their settings, the custom boxes, etc...):
     + **📄 boxes.tex**: this file contains all the commands for the boxes;
     + **📄 colors.tex**: this file contains all the custom colors;
     + **📄 custom_commands.tex**: this file contains all the custom commands needed for the packages / their relative settings;
