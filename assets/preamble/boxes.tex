@@ -129,9 +129,9 @@
     },
 }
 
-\newtcolorbox{exercise}[1]{enhanced,
+\newtcolorbox{exercise}{enhanced,
     boxsep=0.25ex,
-    title=\fontfamily{ppl}\selectfont{\textbf{Exercise {#1}}},
+    title=\fontfamily{ppl}\selectfont{\textbf{Exercise \thesection.\theexamplecounter \addtocounter{exercisecounter}{1}}},
     coltitle=black,
     arc=0mm,
     rounded corners=all,
@@ -154,9 +154,9 @@
     },
 }
 
-\newtcolorbox{example}[1]{enhanced,
+\newtcolorbox{example}{enhanced,
     boxsep=0.25ex,
-    title=\fontfamily{ppl}\selectfont{\textbf{Example {#1}}},
+    title=\fontfamily{ppl}\selectfont{\textbf{Example \thesection.\theexamplecounter \addtocounter{examplecounter}{1}}},
     coltitle=black,
     arc=0mm,
     rounded corners=all,
