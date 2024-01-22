@@ -1,6 +1,6 @@
 <h1 align="center">NoTeX</h1>
 
-<p align="center"><i>A custom LaTeX template for taking notes • <code>v1.3</code></i></p>
+<p align="center"><i>A custom LaTeX template for taking notes • <code>v1.4</code></i></p>
 
 ---
 
@@ -9,6 +9,12 @@
 In this repository I want to publish the template that I use for taking notes during university classes. I will update it from time to time. If you want to see my notes they'll eventually be uploaded in an (_maybe_) accesible cloud, since I'm not feeling like sharing them at the moment.
 
 The template is under GPL license (until I will find a CC 4.0 license file to replace the GPL one), but it's not excluded that one day I'l write my own license. You are free to use my template, as long as you credit me. It's fine if you want to edit the template, based on your needs, but don't edit a couple lines and then sell it as your own template
+
+---
+
+## Table of contents
+1. [File structure](#-1\)-File-structure)
+2. [Customization of the project](#-2\)-Customization-of-the-project)
 
 ---
 
@@ -78,7 +84,7 @@ that we should all use it. Thanks for coming to my TEDx talk
 ```latex
 \document[12pt, letterpaper]{report}
 
-% Assume that here we import preamble.tex, title.tex and macros.tex
+% Assume that here we import preamble_assembler.tex, title.tex and macros.tex
 
 \begin{document}
 
@@ -221,7 +227,47 @@ Two examples for using both the `proof` and the `solution` boxes:
 
 ---
 
-## 4) Special Thanks ❤️
+## 4) Time complexity
+
+How well does NoTeX perform? It depends on the compiler and on the compile settings that you use. I'm providing here some benchmarks made on my computers with different OSs, and I'll leave also the specs for further comparison:
+
+<table align="center">
+  <tr>
+    <th colspan="2">Examinated element</th>
+    <th>Linux Mint</th>
+    <th>macOs</th>
+  </tr>
+  <tr>
+    <td align="center" rowspan="3"><b>HW/SW Specs</b></td>
+    <td align="center"><b>OS Version</b></td>
+    <td align="center">Linux Mint 21.2</td>
+    <td align="center">macOs Monterey</td>
+  </tr>
+  <tr>
+    <td align="center"><b>CPU</b></td>
+    <td align="center">Intel i7-4770 @ 3.9 GHz</td>
+    <td align="center">N/A</td>
+  </tr>
+  <tr>
+    <td align="center"><b>RAM</b></td>
+    <td align="center">16GB DDR3</td>
+    <td align="center">8GB DDR3</td>
+  </tr>
+  <tr>
+    <td align="center" rowspan="2"><b>Compiler<br><a href="https://github.com/tectonic-typesetting/tectonic">tectonic</a></b></td>
+    <td align="center"><b>Command used</b></td>
+    <td align="center" colspan="2"><code>tectonic main.tex -Z continue-on-errors</code></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Time needed<br>(on average)</b></td>
+    <td align="center">~23s</td>
+    <td align="center">~40s</td>
+  </tr>
+</table>
+
+---
+
+## 5) Special Thanks ❤️
 
 I'd like to thank [SeniorMars](https://github.com/SeniorMars) for both his [repository](https://github.com/SeniorMars/dotfiles) and his [video](https://www.youtube.com/watch?v=DOtM1mrWjUo) over the way he takes notes with _LaTeX_, which inspired me to build my own template and taking notes with it. Oh btw, you should thank [Daniel Falbo](https://github.com/danielfalbo) too, since if he didn't ask me "_Hey, why don't you upload your notes on GitHub?_" then all this material won't be here.
 
