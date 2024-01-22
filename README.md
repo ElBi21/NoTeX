@@ -17,7 +17,7 @@ The template is under GPL license (until I will find a CC 4.0 license file to re
 2. [Customization of the project](#2-customization-of-the-project)
 3. [About the boxes](#3-about-the-boxes)
 4. [Time complexity](#4-time-complexity)
-5. [Special thanks ❤️](#5-special-thanks-❤️)
+5. [Special thanks ❤️](#5-special-thanks-%EF%B8%8F)
 
 ---
 
