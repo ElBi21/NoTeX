@@ -13,8 +13,8 @@ The template is under GPL license (until I will find a CC 4.0 license file to re
 ---
 
 ## Table of contents
-1. [File structure](#-1\)-File-structure)
-2. [Customization of the project](#-2\)-Customization-of-the-project)
+1. [File structure](#-1-file-structure)
+2. [Customization of the project](#2-customization-of-the-project)
 
 ---
 
