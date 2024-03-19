@@ -19,13 +19,36 @@
 
 \noindent This is an attempt to transform the old project of NoTeX into an actual class, done in a proper way. The class is based out of the \texttt{report} class, and all the parameters are defined in the \texttt{notex.cls} class file. The class comes with a packet, called \texttt{notexmacros}. Such packet adds plenty of macros that can be used by the user, and that were pretty much useful to me while taking notes. This class aims also to reduce drastically the number of errors and thus increase the compile time. If it will be worth, it will be published also on the \texttt{CTAN} archive.
 
-\chapter{The class}
+\chapter{The \texttt{notex} class}
 
 The class file is organized in various structures: \textbf{declaration}, \textbf{packages importation}, \textbf{definition of colors}, \textbf{custom commands}, \textbf{loading of the class}.
 
 \section{Declaration}
 
+The declaration of the class simply consists of the following lines of command:
+\begin{tcolorbox}
+    \begin{verbatim}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{notex}[2024 ElBi21 LaTeX class for taking notes]\end{verbatim}
+\end{tcolorbox}
+
 \section{Importing the packages needed}
+
+The following packages are imported into the \texttt{notex.cls} class file:
+\begin{tcolorbox}
+    \begin{verbatim}
+\RequirePackage{xcolor}                 % Package for colors
+\RequirePackage{tcolorbox}              % Package for boxes
+\RequirePackage[a4paper]{geometry}      % Package for the geometry of the file
+\RequirePackage{listings}               % Package for code
+
+\RequirePackage[T1]{fontenc}            % Package for font encoding
+\RequirePackage{fouriernc}              % Package with the font
+\RequirePackage{sourcecodepro}
+
+\RequirePackage{notexmacros}            % Package with macros
+    \end{verbatim}
+\end{tcolorbox}
 
 \section{Custom colors}
 

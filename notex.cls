@@ -2,19 +2,28 @@
 \ProvidesClass{notex}[2024 ElBi21 LaTeX class for taking notes]
 
 % Class outline:
-%  1. Packages
-%  2. Colors
-%  3. Commands
-%  4. Class Options
-%  5. Load of the class - End of file
+%  1. Load of the class - End of file
+%  2. Packages
+%  3. Colors
+%  4. Commands
+%  5. Class Options
 % ---+---+---+---+---+---+---+---+---+---
 
+% --- Load class ---
+\LoadClass[10pt, letterpaper]{report}                % Loads the report class, which allows for the \chapter command
+
 % --- Packages Section ---
-\RequirePackage{xcolor}             % Package for colors
-\RequirePackage{tcolorbox}          % Package for boxes
-\RequirePackage[a4paper]{geometry}           % Package for the geometry of the file
-\RequirePackage{notexmacros}         % Package with macros
-%\RequirePackage{lstlisting}         % Lstlisting or minted? Must choose
+\RequirePackage{xcolor}                 % Package for colors
+\RequirePackage{tcolorbox}              % Package for boxes
+\RequirePackage[a4paper]{geometry}      % Package for the geometry of the file
+\RequirePackage{listings}               % Package for code
+
+\RequirePackage[T1]{fontenc}            % Package for font encoding
+\RequirePackage{fouriernc}              % Package with the font
+%\RequirePackage{sourcecodepro}
+
+\RequirePackage{notexmacros}            % Package with macros
+
 
 % --- Colors ---
 \definecolor{maindoccol}{HTML}{6E000D} % Standard color, can be overwritten with \maincol
@@ -28,13 +37,14 @@
 %\DeclareOption{maincol}{\typeout{Saw foo.}}
 %\ProcessOptions\relax               % Process the options
 
-% --- Load class ---
-\LoadClass[10pt, letterpaper]{report}                % Loads the report class, which allows for the \chapter command
-
 %% --- Post-Load setups
 \geometry{
     left=25mm,
     right=25mm,
     top=25mm,
     bottom=25mm
+}
+
+\lstdefinestyle{notexstand}{
+    basicstyle = \ttfamily\footnotesize,
 }
