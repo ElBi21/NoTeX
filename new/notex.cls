@@ -12,6 +12,7 @@
 % --- Packages Section ---
 \RequirePackage{xcolor}             % Package for colors
 \RequirePackage{tcolorbox}          % Package for boxes
+\RequirePackage{notexmacro}         % Package with macros
 %\RequirePackage{lstlisting}         % Lstlisting or minted? Must choose
 
 % --- Colors ---
@@ -19,13 +20,8 @@
 
 % --- Commands ---
 
-% \maincol{1, 2} -> Defines the color of the main document.
-%
-% Parameters:
-%   -> 1: a parameter such as RGB, HTML, etc...
-%   -> 2: the code of the color, depending on the format specified in 1
+% Class related
 \newcommand{\maincol}[2]{ \definecolor{maindoccol}{#1}{#2} }
-\newcommand{\curbrac}[1]{$\langle$#1$\rganle$}
 
 % --- Class options ---
 %\DeclareOption{maincol}{\typeout{Saw foo.}}

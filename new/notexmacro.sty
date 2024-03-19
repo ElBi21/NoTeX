@@ -1,0 +1,56 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{notexmacro}[2024 ElBi21 LaTeX package with custom macros]
+
+% --- Needed Measures and Commands ---
+% Determine the font size
+\newlength{\docfontsize}
+\makeatletter
+\setlength{\docfontsize}{\f@size pt}
+\makeatother
+
+% --- Math Macros ---
+\newcommand{\eq}{\; = \;}
+\newcommand{\thus}{\quad \Longrightarrow \quad}
+\newcommand{\nextline}{\quad \Longrightarrow}
+\newcommand{\prevline}{\Longrightarrow \quad}
+
+% --- General Purpouse Macros ---
+\newcommand{\curbrac}[1]{
+    \relax\ifmmode {
+        \langle#1\rganle
+    } \else {
+        $\langle#1\rganle$
+    } \fi
+}
+
+\newcommand{\st}{
+    \relax\ifmmode {
+        ^{\mbox{\footnotesize st}}
+    } \else {
+        \hspace*{-\docfontsize} $^{\mbox{\footnotesize st}}$
+    } \fi
+}
+
+\newcommand{\nd}{
+    \relax\ifmmode {
+        ^{\mbox{\footnotesize nd}}
+    } \else {
+        \hspace*{-\docfontsize} $^{\mbox{\footnotesize nd}}$
+    } \fi
+}
+
+\newcommand{\rd}{
+    \relax\ifmmode {
+        ^{\mbox{\footnotesize rd}}
+    } \else {
+        \hspace*{-\docfontsize} $^{\mbox{\footnotesize rd}}$
+    } \fi
+}
+
+\newcommand{\nth}{
+    \relax\ifmmode {
+        ^{\mbox{\footnotesize th}}
+    } \else {
+        \hspace*{-\docfontsize} $^{\mbox{\footnotesize th}}$
+    }\fi
+}
