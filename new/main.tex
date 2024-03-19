@@ -1,10 +1,11 @@
-\documentclass[foo]{notex}
+\documentclass[]{notex}
 
 \usepackage{blindtext}
 \usepackage{makecell}
 \usepackage{tikz}
 
 \input{doc/documentation_settings.tex}
+\newcommand{\becomes}[1]{\hspace{#1} $\--$becomes$\rightarrow$ \hspace{#1}}
 
 \title{NoTeX}
 \author{ElBi21 - Leonardo Biason}
@@ -18,6 +19,8 @@
 
 \noindent This is an attempt to transform the old project of NoTeX into an actual class
 
+\chapter{The class}
+
 \section{Commands of the class}
 
 This class provides various commands, which allow to customize to your liking the template. Here is a list of all the supported (and provided) commands:
@@ -27,7 +30,7 @@ This class provides various commands, which allow to customize to your liking th
     \tcblower
     \begin{tabular}{r l}
         \textbf{Examples}: & \verb|\maincol{HTML}{303342}| \\ 
-                     & \verb|\maincol{RGB}{30, 25, 76}|
+                           & \verb|\maincol{RGB}{30, 25, 76}|
     \end{tabular}
 \end{tcolorbox}
 
@@ -41,8 +44,50 @@ This class provides various commands, which allow to customize to your liking th
 
 placeholder
 
-\section{The same thing}
+\chapter{The \texttt{notexmacro} package}
 
-placeholder $5\nth$ and 6$\nth$ and 7\nth
+\noindent In this chapter the \texttt{notexmacro} package will be explained. Such package contains a collection of macros which can turn to be useful while using the class. The package is automatically required by the class, so you don't have to install anything else.
+\\
+\indent The macros are divided into two groups: the \textbf{math} macros and the \textbf{text} macros. The \textbf{math} macros are used within a math environment, while the text macros are not. There are some \textbf{general purpose} macros which can be used both inside and outside a \textbf{math} environment.
+
+\section{The \texttt{math} macros}
+
+\begin{tcolorbox}
+    \verb|\eq|
+\end{tcolorbox}
+
+\noindent Adds space around a $=$. An example follows:
+\begin{center}
+    \verb|a \eq b| \becomes{20pt} $a \eq b$
+\end{center}
+
+\begin{tcolorbox}
+    \verb|\thus|
+\end{tcolorbox}
+
+\noindent Adds substantial space around a $\Longrightarrow$, and it can be used to define a logical implication (\textit{we have $A$, thus we can get $B$}). An example follows:
+\begin{center}
+    \verb|a \thus b| \becomes{20pt} $a \thus b$
+\end{center}
+
+\begin{tcolorbox}
+    \verb|\nextline| and \verb|\prevline|
+\end{tcolorbox}
+
+\noindent Adds a $\Longrightarrow$ which can be used at the end (with \verb|\nextline|) or at the beginning (with \verb|\prevline|) of an equation. An example follows:
+\begin{center}
+    \verb|ax + b \nextline| \becomes{20pt} $ax + b \nextline$ \\
+    \verb|\prevline ax + c| \becomes{20pt} $\prevline ax + c$
+\end{center}
+
+\begin{tcolorbox}
+    \verb|\nextline| and \verb|\prevline|
+\end{tcolorbox}
+
+\noindent Adds a $\Longrightarrow$ which can be used at the end (with \verb|\nextline|) or at the beginning (with \verb|\prevline|) of an equation. An example follows:
+\begin{center}
+    \verb|ax + b \nextline| \becomes{20pt} $ax + b \nextline$ \\
+    \verb|\prevline ax + c| \becomes{20pt} $\prevline ax + c$
+\end{center}
 
 \end{document}

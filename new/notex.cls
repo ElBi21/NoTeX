@@ -12,6 +12,7 @@
 % --- Packages Section ---
 \RequirePackage{xcolor}             % Package for colors
 \RequirePackage{tcolorbox}          % Package for boxes
+\RequirePackage[a4paper]{geometry}           % Package for the geometry of the file
 \RequirePackage{notexmacro}         % Package with macros
 %\RequirePackage{lstlisting}         % Lstlisting or minted? Must choose
 
@@ -23,9 +24,17 @@
 % Class related
 \newcommand{\maincol}[2]{ \definecolor{maindoccol}{#1}{#2} }
 
-% --- Class options ---
+%% --- Class options ---
 %\DeclareOption{maincol}{\typeout{Saw foo.}}
 %\ProcessOptions\relax               % Process the options
 
-% --- Load class - End of class ---
-\LoadClass[]{report}                % Loads the report class, which allows for the \chapter command
+% --- Load class ---
+\LoadClass[10pt, letterpaper]{report}                % Loads the report class, which allows for the \chapter command
+
+%% --- Post-Load setups
+\geometry{
+    left=25mm,
+    right=25mm,
+    top=25mm,
+    bottom=25mm
+}

@@ -1,20 +1,25 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{notexmacro}[2024 ElBi21 LaTeX package with custom macros]
 
-% --- Needed Measures and Commands ---
+%%% Needed Measures and Commands %%%%%%%%%%%%%%
+
 % Determine the font size
 \newlength{\docfontsize}
 \makeatletter
 \setlength{\docfontsize}{\f@size pt}
 \makeatother
 
-% --- Math Macros ---
+%%% Math Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% General Purpouse Math
 \newcommand{\eq}{\; = \;}
 \newcommand{\thus}{\quad \Longrightarrow \quad}
 \newcommand{\nextline}{\quad \Longrightarrow}
 \newcommand{\prevline}{\Longrightarrow \quad}
 
-% --- General Purpouse Macros ---
+% Probability
+
+%%% General Purpouse Macros %%%%%%%%%%%%%%%%%%%
 \newcommand{\curbrac}[1]{
     \relax\ifmmode {
         \langle#1\rganle
