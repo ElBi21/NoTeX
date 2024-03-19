@@ -17,9 +17,17 @@
 
 \chapter{Introduction}
 
-\noindent This is an attempt to transform the old project of NoTeX into an actual class
+\noindent This is an attempt to transform the old project of NoTeX into an actual class, done in a proper way. The class is based out of the \texttt{report} class, and all the parameters are defined in the \texttt{notex.cls} class file. The class comes with a packet, called \texttt{notexmacros}. Such packet adds plenty of macros that can be used by the user, and that were pretty much useful to me while taking notes. This class aims also to reduce drastically the number of errors and thus increase the compile time. If it will be worth, it will be published also on the \texttt{CTAN} archive.
 
 \chapter{The class}
+
+The class file is organized in various structures: \textbf{declaration}, \textbf{packages importation}, \textbf{definition of colors}, \textbf{custom commands}, \textbf{loading of the class}.
+
+\section{Declaration}
+
+\section{Importing the packages needed}
+
+\section{Custom colors}
 
 \section{Commands of the class}
 
@@ -40,9 +48,7 @@ This class provides various commands, which allow to customize to your liking th
     \item [\texttt{code}] is the code of the color. Must match the format given by the previous parameter
 \end{itemize}
 
-\subsection{First part}
-
-placeholder
+\section{Loading of the class}
 
 \chapter{The \texttt{notexmacros} package}
 
@@ -78,6 +84,21 @@ placeholder
 \begin{center}
     \verb|ax + b \nextline| \becomes{20pt} $ax + b \nextline$ \\
     \verb|\prevline ax + c| \becomes{20pt} $\prevline ax + c$
+\end{center}
+
+\subsection{Specific macros for statistical distributions}
+
+\begin{tcolorbox}
+    \verb|\cov|, \verb|\bino|, \verb|\berno|, \verb|\unif|, \verb|\geom|, \verb|\poiss| and \verb|\multin|
+\end{tcolorbox}
+
+\noindent Adds the function of the covariance and the following distributions: the binomial distribution, the Bernoulli distribution, the uniform distribution, the geometric distribution, the Poisson distribution and the multinomial distribution. An example follows:
+\begin{center}
+    \begin{tabular}{c c c}
+        \verb|\cov(X)| & \becomes{20pt} & $\cov(X)$ \\ & & \\
+        \verb|X \sim \bino \sim \berno \sim \unif| & \becomes{20pt} & $X \sim \bino \sim \berno \sim \unif$ \\
+        \verb|\sim \geom \sim \poiss \sim \multin| & & $\sim \geom \sim \poiss \sim \multin$
+    \end{tabular}
 \end{center}
 
 \section{The \texttt{text} macros}
