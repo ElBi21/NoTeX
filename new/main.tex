@@ -1,8 +1,12 @@
-\documentclass{notex}
+\documentclass[foo]{notex}
 
 \usepackage{blindtext}
+\usepackage{makecell}
+\usepackage{tikz}
 
-\title{Test for NoTeX}
+\input{documentation_settings.tex}
+
+\title{NoTeX}
 \author{ElBi21 - Leonardo Biason}
 \date{Somewhere in 2024}
 
@@ -10,26 +14,35 @@
 
 \maketitle
 
-\noindent
-Let's begin with a simple working example here.
+\chapter{Introduction}
 
-\blindtext
+\noindent Class for a theme \textcolor{maindoccol}{text}
 
-\pagebreak
-\chapter{Beginning}
+\section{Commands}
 
-\blindtext
+This class provides various commands, which allow to customize to your liking the template. Here is a list of all the supported (and provided) commands:
 
-\section{Introduction}
+\begin{tcolorbox}
+    \verb|\maincol{format}{code}|
+    \tcblower
+    \begin{tabular}{r l}
+        \textbf{Examples}: & \verb|\maincol{HTML}{303342}| \\ 
+                     & \verb|\maincol{RGB}{30, 25, 76}|
+    \end{tabular}
+\end{tcolorbox}
 
-The Monty Hall problem...
+\noindent Sets the main color for the document.
+\begin{itemize}
+    \item [\texttt{format}] specifies the format of the color. Supports all the formats of the \texttt{xcolor} package;
+    \item [\texttt{code}] is the code of the color. Must match the format given by the previous parameter
+\end{itemize}
 
 \subsection{First part}
 
-\blindtext
+placeholder
 
 \section{The same thing}
 
-The Monty...
+placeholder
 
 \end{document}
