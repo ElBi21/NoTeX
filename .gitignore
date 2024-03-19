@@ -1,3 +1,5 @@
-main.maf
+*.maf
+*.log
+*.synctex.gz
 main.pdf
 .idea

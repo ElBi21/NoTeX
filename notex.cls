@@ -13,7 +13,7 @@
 \RequirePackage{xcolor}             % Package for colors
 \RequirePackage{tcolorbox}          % Package for boxes
 \RequirePackage[a4paper]{geometry}           % Package for the geometry of the file
-\RequirePackage{notexmacro}         % Package with macros
+\RequirePackage{notexmacros}         % Package with macros
 %\RequirePackage{lstlisting}         % Lstlisting or minted? Must choose
 
 % --- Colors ---
