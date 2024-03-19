@@ -80,14 +80,15 @@ placeholder
     \verb|\prevline ax + c| \becomes{20pt} $\prevline ax + c$
 \end{center}
 
+\section{The \texttt{text} macros}
+
 \begin{tcolorbox}
-    \verb|\nextline| and \verb|\prevline|
+    \verb|\st|, \verb|\nd|, \verb|\rd| and \verb|\nth|
 \end{tcolorbox}
 
-\noindent Adds a $\Longrightarrow$ which can be used at the end (with \verb|\nextline|) or at the beginning (with \verb|\prevline|) of an equation. An example follows:
+\noindent Adds respectively the \textit{st}, the \textit{nd}, the \textit{rd} and the \textit{th} after a number. Works both in a \texttt{math} and in a non-\texttt{math} environment. An example follows:
 \begin{center}
-    \verb|ax + b \nextline| \becomes{20pt} $ax + b \nextline$ \\
-    \verb|\prevline ax + c| \becomes{20pt} $\prevline ax + c$
+    \verb|1\st, 2\nd, 3\rd, 4\nth| \becomes{20pt} 1\st, 2\nd, 3\rd, 4\nth
 \end{center}
 
 \end{document}
