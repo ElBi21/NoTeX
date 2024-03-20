@@ -1,40 +1,138 @@
-\documentclass[12pt, letterpaper]{report}
+\documentclass[]{notex}
 
-\input{assets/preamble/preamble_assembler.tex}
-\input{assets/title.tex}
-\input{assets/macros.tex}
+\usepackage{blindtext}
+\usepackage{makecell}
+\usepackage{tikz}
 
-% Beginning of the document
+\input{doc/documentation_settings.tex}
+\newcommand{\becomes}[1]{\hspace{#1} $\--$becomes$\rightarrow$ \hspace{#1}}
+
+\title{NoTeX}
+\author{ElBi21 - Leonardo Biason}
+\date{Somewhere in 2024}
 
 \begin{document}
-\dominitoc
 
-\pagenumbering{Roman}
-\setcounter{page}{0}
+\maketitle
 
-\pagestyle{fancy}
+\chapter{Introduction}
 
-\pagebreak
+\noindent This is an attempt to transform the old project of NoTeX into an actual class, done in a proper way. The class is based out of the \texttt{report} class, and all the parameters are defined in the \texttt{notex.cls} class file. The class comes with a packet, called \texttt{notexmacros}. Such packet adds plenty of macros that can be used by the user, and that were pretty much useful to me while taking notes. This class aims also to reduce drastically the number of errors and thus increase the compile time. If it will be worth, it will be published also on the \texttt{CTAN} archive.
 
-\newgeometry{
-    a4paper,
-    left=25mm,
-    right=25mm,
-    top=20mm,
-    bottom=25mm
-    }
-    
-\tableofcontents
+\chapter{The \texttt{notex} class}
 
-\pagebreak
+The class file is organized in various structures: \textbf{declaration}, \textbf{packages importation}, \textbf{definition of colors}, \textbf{custom commands}, \textbf{loading of the class}.
 
-\setcounter{page}{0}
-\pagenumbering{arabic}
-\setcounter{chapter}{-1}
+\section{Declaration}
 
-\include{chapters/chap1_example}
+The declaration of the class simply consists of the following lines of command:
+\begin{tcolorbox}
+    \begin{verbatim}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{notex}[2024 ElBi21 LaTeX class for taking notes]\end{verbatim}
+\end{tcolorbox}
 
-\pagebreak
-\include{chapters/chapex}
+\section{Importing the packages needed}
+
+The following packages are imported into the \texttt{notex.cls} class file:
+\begin{tcolorbox}
+    \begin{verbatim}
+\RequirePackage{xcolor}                 % Package for colors
+\RequirePackage{tcolorbox}              % Package for boxes
+\RequirePackage[a4paper]{geometry}      % Package for the geometry of the file
+\RequirePackage{listings}               % Package for code
+
+\RequirePackage[T1]{fontenc}            % Package for font encoding
+\RequirePackage{fouriernc}              % Package with the font
+\RequirePackage{sourcecodepro}
+
+\RequirePackage{notexmacros}            % Package with macros
+    \end{verbatim}
+\end{tcolorbox}
+
+\section{Custom colors}
+
+\section{Commands of the class}
+
+This class provides various commands, which allow to customize to your liking the template. Here is a list of all the supported (and provided) commands:
+
+\begin{tcolorbox}
+    \verb|\maincol{format}{code}|
+    \tcblower
+    \begin{tabular}{r l}
+        \textbf{Examples}: & \verb|\maincol{HTML}{303342}| \\ 
+                           & \verb|\maincol{RGB}{30, 25, 76}|
+    \end{tabular}
+\end{tcolorbox}
+
+\noindent Sets the main color for the document.
+\begin{itemize}
+    \item [\texttt{format}] specifies the format of the color. Supports all the formats of the \texttt{xcolor} package;
+    \item [\texttt{code}] is the code of the color. Must match the format given by the previous parameter
+\end{itemize}
+
+\section{Loading of the class}
+
+\chapter{The \texttt{notexmacros} package}
+
+\noindent In this chapter the \texttt{notexmacro} package will be explained. Such package contains a collection of macros which can turn to be useful while using the class. The package is automatically required by the class, so you don't have to install anything else.
+\\
+\indent The macros are divided into two groups: the \textbf{math} macros and the \textbf{text} macros. The \textbf{math} macros are used within a math environment, while the text macros are not. There are some \textbf{general purpose} macros which can be used both inside and outside a \textbf{math} environment.
+
+\section{The \texttt{math} macros}
+
+\begin{tcolorbox}
+    \verb|\eq|
+\end{tcolorbox}
+
+\noindent Adds space around a $=$. An example follows:
+\begin{center}
+    \verb|a \eq b| \becomes{20pt} $a \eq b$
+\end{center}
+
+\begin{tcolorbox}
+    \verb|\thus|
+\end{tcolorbox}
+
+\noindent Adds substantial space around a $\Longrightarrow$, and it can be used to define a logical implication (\textit{we have $A$, thus we can get $B$}). An example follows:
+\begin{center}
+    \verb|a \thus b| \becomes{20pt} $a \thus b$
+\end{center}
+
+\begin{tcolorbox}
+    \verb|\nextline| and \verb|\prevline|
+\end{tcolorbox}
+
+\noindent Adds a $\Longrightarrow$ which can be used at the end (with \verb|\nextline|) or at the beginning (with \verb|\prevline|) of an equation. This can be used while passing from one line to the other of an equation which would usually need more than one line. An example follows:
+\begin{center}
+    \verb|ax + b \nextline| \becomes{20pt} $ax + b \nextline$ \\
+    \verb|\prevline ax + c| \becomes{20pt} $\prevline ax + c$
+\end{center}
+
+\subsection{Specific macros for statistical distributions}
+
+\begin{tcolorbox}
+    \verb|\cov|, \verb|\bino|, \verb|\berno|, \verb|\unif|, \verb|\geom|, \verb|\poiss| and \verb|\multin|
+\end{tcolorbox}
+
+\noindent Adds the function of the covariance and the following distributions: the binomial distribution, the Bernoulli distribution, the uniform distribution, the geometric distribution, the Poisson distribution and the multinomial distribution. An example follows:
+\begin{center}
+    \begin{tabular}{c c c}
+        \verb|\cov(X)| & \becomes{20pt} & $\cov(X)$ \\ & & \\
+        \verb|X \sim \bino \sim \berno \sim \unif| & \becomes{20pt} & $X \sim \bino \sim \berno \sim \unif$ \\
+        \verb|\sim \geom \sim \poiss \sim \multin| & & $\sim \geom \sim \poiss \sim \multin$
+    \end{tabular}
+\end{center}
+
+\section{The \texttt{text} macros}
+
+\begin{tcolorbox}
+    \verb|\st|, \verb|\nd|, \verb|\rd| and \verb|\nth|
+\end{tcolorbox}
+
+\noindent Adds respectively the \textit{st}, the \textit{nd}, the \textit{rd} and the \textit{th} after a number. Works both in a \texttt{math} and in a non-\texttt{math} environment. An example follows:
+\begin{center}
+    \verb|1\st, 2\nd, 3\rd, 4\nth| \becomes{20pt} 1\st, 2\nd, 3\rd, 4\nth
+\end{center}
 
 \end{document}

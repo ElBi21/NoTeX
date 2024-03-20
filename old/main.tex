@@ -1,0 +1,40 @@
+\documentclass[12pt, letterpaper]{report}
+
+\input{assets/preamble/preamble_assembler.tex}
+\input{assets/title.tex}
+\input{assets/macros.tex}
+
+% Beginning of the document
+
+\begin{document}
+\dominitoc
+
+\pagenumbering{Roman}
+\setcounter{page}{0}
+
+\pagestyle{fancy}
+
+\pagebreak
+
+\newgeometry{
+    a4paper,
+    left=25mm,
+    right=25mm,
+    top=20mm,
+    bottom=25mm
+    }
+    
+\tableofcontents
+
+\pagebreak
+
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\setcounter{chapter}{-1}
+
+\include{chapters/chap1_example}
+
+\pagebreak
+\include{chapters/chapex}
+
+\end{document}

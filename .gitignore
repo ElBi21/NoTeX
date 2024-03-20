@@ -1,3 +1,4 @@
 *.maf
-*.pdf
-./idea
+*.log
+*.synctex.gz
+.idea
