@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
-          sudo gem install github-linguist
           cd $GITHUB_WORKSPACE
-          github-linguist
+          ls
+          echo $GITHUB_WORKSPACE
+          echo "I should be in GITHUB_WORKSPACE..."
+          #sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
+          #sudo gem install github-linguist
+          #github-linguist
