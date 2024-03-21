@@ -10,8 +10,12 @@ jobs:
     name: Run github-linguist on the repo
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+      - uses: actions/checkout@v4
+
+      - name: Install the packages
       - run: |
-          cd $GITHUB_WORKSPACE
+          #cd $GITHUB_WORKSPACE
           git status
           #sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
           #sudo gem install github-linguist
