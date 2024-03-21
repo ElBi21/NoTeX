@@ -12,9 +12,8 @@ jobs:
     steps:
       - run: |
           cd $GITHUB_WORKSPACE
-          ls
-          echo $GITHUB_WORKSPACE
-          echo "I should be in GITHUB_WORKSPACE..."
+          cd ../
+          git status
           #sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
           #sudo gem install github-linguist
           #github-linguist
