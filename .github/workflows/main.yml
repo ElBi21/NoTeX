@@ -8,9 +8,8 @@ on:
 jobs:
   run_linguist:
     name: Run github-linguist on the repo
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - run: |
-          sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
-          gem install github-linguist
+          sudo gem install github-linguist
           github-linguist
