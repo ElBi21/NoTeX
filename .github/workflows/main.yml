@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Install the packages
-      - run: |
+        run: |
           #cd $GITHUB_WORKSPACE
           git status
           #sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
