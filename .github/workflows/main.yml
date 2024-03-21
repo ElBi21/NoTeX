@@ -12,7 +12,6 @@ jobs:
     steps:
       - run: |
           cd $GITHUB_WORKSPACE
-          cd ../
           git status
           #sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
           #sudo gem install github-linguist
