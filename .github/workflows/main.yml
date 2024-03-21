@@ -8,6 +8,9 @@ on:
 jobs:
   run_linguist:
     name: Run github-linguist on the repo
-    runs-on: ubuntu-22.04
+    runs-on: macos-latest
     steps:
-      - run: github-linguist
+      - run: |
+          brew install cmake pkg-config icu4c
+          gem install github-linguist
+          github-linguist
