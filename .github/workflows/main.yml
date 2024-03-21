@@ -15,8 +15,7 @@ jobs:
 
       - name: Install the packages
         run: |
-          #cd $GITHUB_WORKSPACE
           git status
           #sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
-          #sudo gem install github-linguist
-          #github-linguist
+          sudo gem install github-linguist
+          github-linguist
