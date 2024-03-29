@@ -67,6 +67,10 @@
 
 % Class related
 \newcommand{\maincol}[2]{ \definecolor{maindoccol}{#1}{#2} }
+\newcommand{\marleft}{25mm}
+\newcommand{\marright}{25mm}
+\newcommand{\marbottom}{25mm}
+\newcommand{\martop}{25mm}
 
 %% --- Class options ---
 %\DeclareOption{maincol}{\typeout{Saw foo.}}
@@ -74,10 +78,10 @@
 
 %% --- Post-Load setups
 \geometry{
-    left=25mm,
-    right=25mm,
-    top=25mm,
-    bottom=25mm
+    left=\marleft ,
+    right=\marright ,
+    top=\martop ,
+    bottom=\marbottom
 }
 
 \lstdefinestyle{notexstand}{
