@@ -27,11 +27,15 @@
 \newcommand{\multin}{\mbox{Multi}}
 
 %%% General Purpouse Macros %%%%%%%%%%%%%%%%%%%
-\newcommand{\curbrac}[1]{
+\newcommand{\angbrack}[1]{
     \relax\ifmmode {
-        \langle#1\rganle
-    } \else {
-        $\langle#1\rganle$
+            \langle \;
+        } \else {
+            $\langle$ \hspace{-0.5\docfontsize}
+    } \fi #1 \relax\ifmmode {
+            \; \rangle
+        } \else {
+            \hspace{-0.5\docfontsize} $\rangle$
     } \fi
 }
 
