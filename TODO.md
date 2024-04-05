@@ -1,6 +1,6 @@
 - [ ] Document Sections
     - [ ] Chapters
-        - [X] Make the figures fit
+        - [ ] Make the figures fit
     - [ ] Sections
     - [ ] Subsections
 - [ ] Boxes
