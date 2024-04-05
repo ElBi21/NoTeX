@@ -4,6 +4,10 @@
 
 ---
 
+<h3 align="center"><b>⚠️ Warning</b>: the template in the <code>main</code> and <code>dev</code> branches is still being worked on. If you want to use the template, please download the files from the <code>old</code> <a href="https://github.com/ElBi21/NoTeX/tree/old">branch</a></h3>
+
+---
+
 ## Yeah sure, but what **_IS_** NoTeX to begin with?
 
 In this repository I want to publish the template that I use for taking notes during university classes. I will update it from time to time. If you want to see my notes they'll eventually be uploaded in an (_maybe_) accesible cloud, since I'm not feeling like sharing them at the moment.
