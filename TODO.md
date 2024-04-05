@@ -1,0 +1,11 @@
+- [ ] Document Sections
+    - [ ] Chapters
+        - [ ] Make the figures fit
+    - [ ] Sections
+    - [ ] Subsections
+- [ ] Boxes
+- [ ] Choose new colors
+- [ ] Port all the custom commands
+- [ ] Scrap unnecessary packages
+- [ ] Port table of contents
+- [ ] Flexible title page
