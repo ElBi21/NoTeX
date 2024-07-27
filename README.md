@@ -1,5 +1,5 @@
 <h1 align="center">NoTeX</h1>
-
+  
 <p align="center"><i>A custom LaTeX template for taking notes • <code>v1.4</code></i></p>
 
 ---
@@ -279,3 +279,7 @@ How well does NoTeX perform? It depends on the compiler and on the compile setti
 I'd like to thank [SeniorMars](https://github.com/SeniorMars) for both his [repository](https://github.com/SeniorMars/dotfiles) and his [video](https://www.youtube.com/watch?v=DOtM1mrWjUo) over the way he takes notes with _LaTeX_, which inspired me to build my own template and taking notes with it. Oh btw, you should thank [Daniel Falbo](https://github.com/danielfalbo) too, since if he didn't ask me "_Hey, why don't you upload your notes on GitHub?_" then all this material won't be here.
 
 If you want to contribute to the template, just feel free to do so! It's not guaranteed that your contribution will be implemented, but it could be worth a shot!
+
+---
+
+<a href="https://brainmade.org"><img width="20%" src="https://brainmade.org/white-logo.png"></a>
