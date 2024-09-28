@@ -24,6 +24,7 @@
 
 \RequirePackage{notexmacros}            % Package with macros
 
+\tcbuselibrary{most}                    % Loads tcolorbox options
 
 % --- Colors ---
 \definecolor{maindoccol}{HTML}{6E000D}  % Standard color, can be overwritten with \maincol
@@ -71,6 +72,37 @@
 \newcommand{\marright}{25mm}
 \newcommand{\marbottom}{25mm}
 \newcommand{\martop}{25mm}
+
+% Boxes
+\newtcolorbox{definition}[1]{
+    title=\fontfamily{ppl}\selectfont{\textbf{Definition:} {#1}},
+    coltitle=black,
+    halign title=left,
+    attach boxed title to top left = {
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    boxed title style = {
+        colback=definitionTitleBG!65!white!80,
+        borderline west={5pt}{-0.5pt}{theoryLINE},
+        rounded corners=east,
+        arc=3mm,
+        sharp corners=west,
+    },
+    colback=definitionBG!30,
+    colframe=definitionBG!60,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    borderline west={5pt}{-0.5pt}{theoryLINE},
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+}
+
+
+
 
 %% --- Class options ---
 %\DeclareOption{maincol}{\typeout{Saw foo.}}
