@@ -17,6 +17,8 @@
 \RequirePackage{tcolorbox}              % Package for boxes
 \RequirePackage[a4paper]{geometry}      % Package for the geometry of the file
 \RequirePackage{listings}               % Package for code
+\RequirePackage{ifthen}                 % Package for class logic
+\RequirePackage{calc}                   % Package for calculating logic
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
@@ -73,32 +75,45 @@
 \newcommand{\marbottom}{25mm}
 \newcommand{\martop}{25mm}
 
+\newlength{\myboxheight}
+
+\newcommand{\dynamicfont}[1]{
+    \setlength{\myboxheight}{\ht\@tempboxa} % Measure the height of the box
+    \ifthenelse{\lengthtest{\myboxheight < 10mm}}%
+        {\fontsize{8pt}{8pt}\selectfont\textcolor{white}{\textsc{#1}}}%
+        {\fontsize{11pt}{11pt}\selectfont\textcolor{white}{\textsc{#1}}}%
+}
+
 % Boxes
 \newtcolorbox{definition}[1]{
-    title=\fontfamily{ppl}\selectfont{\textbf{Definition:} {#1}},
+    title=\fontfamily{ppl}\selectfont{{#1}},
     coltitle=black,
     halign title=left,
     attach boxed title to top left = {
+        xshift=6mm,
         yshift=-\tcboxedtitleheight/2,
         yshifttext=-\tcboxedtitleheight/2
     },
     boxed title style = {
         colback=definitionTitleBG!65!white!80,
-        borderline west={5pt}{-0.5pt}{theoryLINE},
-        rounded corners=east,
-        arc=3mm,
-        sharp corners=west,
+        rounded corners=all,
+        arc=2.5mm,
     },
     colback=definitionBG!30,
-    colframe=definitionBG!60,
+    colframe=definitionBG!90,
     enhanced,
     breakable,
     rounded corners=all,
     arc=1mm,
-    borderline west={5pt}{-0.5pt}{theoryLINE},
+    leftrule=3mm,
     skin first=enhanced,
     skin middle=enhanced,
     skin last=enhanced,
+    overlay={
+        %\draw[thick, blue] (0,0) -- (0,0) node[anchor=north] {$x_0+\varepsilon$};
+        \node[rotate=90, anchor=center] at ([xshift=1.5mm, yshift=-9.1mm]frame.north west) {\dynamicfont{Definition}};
+    },
+    after upper={\global\setbox\@tempboxa=\hbox{\unhbox\@tempboxa}}
 }
 
 
