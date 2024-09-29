@@ -25,6 +25,8 @@
 %\RequirePackage{sourcecodepro}
 
 \RequirePackage{notexmacros}            % Package with macros
+\RequirePackage{amsmath}
+\RequirePackage{gensymb}
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 
@@ -34,8 +36,8 @@
 \definecolor{theoryLINE}{HTML}{6682f1}
 \definecolor{practiceLINE}{HTML}{fecf54}
 
-\definecolor{lemmaBG}{HTML}{b1e0e8}
-\definecolor{lemmaTitleBG}{HTML}{c1e5eb}
+\definecolor{lemmaBG}{HTML}{78d2e1}
+\definecolor{lemmaTitleBG}{HTML}{7dd0de}
 
 \definecolor{theoremBG}{HTML}{70bfbd}
 \definecolor{theoremTitleBG}{HTML}{6ad3d0}
@@ -43,8 +45,8 @@
 \definecolor{definitionBG}{HTML}{97bcea}
 \definecolor{definitionTitleBG}{HTML}{97cbea}
 
-\definecolor{corollaryBG}{HTML}{6da2ec}
-\definecolor{corollaryTitleBG}{HTML}{89b8fa}
+\definecolor{corollaryBG}{HTML}{8293e5}
+\definecolor{corollaryTitleBG}{HTML}{7b94ec}
 
 \definecolor{proofBG}{HTML}{d8c3f0}
 \definecolor{proofTitleBG}{HTML}{ceb2ed}
@@ -103,9 +105,8 @@
     skin middle=enhanced,
     skin last=enhanced,
     overlay={
-        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Define}};
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Definition}};
     },
-    after upper={\global\setbox\@tempboxa=\hbox{\unhbox\@tempboxa}}
 }
 
 \newtcolorbox{theorem}[1]{
@@ -135,7 +136,64 @@
     overlay={
         \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-0.8mm]frame.north west) {\boxdesc{Theorem}};
     },
-    after upper={\global\setbox\@tempboxa=\hbox{\unhbox\@tempboxa}}
+}
+
+\newtcolorbox{lemma}[1]{
+    title=\fontfamily{ppl}\selectfont{{#1}},
+    coltitle=black,
+    halign title=left,
+    attach boxed title to top left = {
+        xshift=6mm,
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    boxed title style = {
+        colback=lemmaTitleBG!65!white!80,
+        rounded corners=all,
+        arc=2.5mm,
+    },
+    colback=lemmaBG!30,
+    colframe=lemmaBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Lemma}};
+    },
+}
+
+\newtcolorbox{corollary}[1]{
+    title=\fontfamily{ppl}\selectfont{{#1}},
+    coltitle=black,
+    halign title=left,
+    attach boxed title to top left = {
+        xshift=6mm,
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    boxed title style = {
+        colback=corollaryTitleBG!65!white!80,
+        rounded corners=all,
+        arc=2.5mm,
+    },
+    colback=corollaryBG!30,
+    colframe=corollaryBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Corollary}};
+    },
 }
 
 

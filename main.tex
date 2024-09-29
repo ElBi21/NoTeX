@@ -134,12 +134,26 @@ The NoTeX class adds also some custom boxes, which are helpful when there is the
 \end{definition}
 
 \begin{theorem}{Spectral Theorem}
-    Given a matrix $A$ which is \textbf{squared} ($A \in \mathbb{R}^{d \times d}$) and \textbf{symmetric} ($A \eq A^\top$), then \textbf{all the eigenvalues} $\lambda_i$ take \textbf{real values} and \textbf{all the eigenvectors} are \textbf{orthogonal}.
+    Given a matrix $A$ which is \textbf{squared} ($A \in \mathbb{R}^{d \times d}$) and \textbf{symmetric} ($A \eq A^\top$), then \textbf{all the eigenvalues} $\lambda_i$ take \textbf{real values} and \textbf{all the eigenvectors} are \textbf{orthogonal}
 \end{theorem}
 
-\begin{theorem}{Spectral Theorem}
-    Test
-\end{theorem}
+\begin{lemma}{Running time of the algorithm}
+    If the algorithm receives as an input an ordered list of items, then its running time will be at most $O(n)$. If the list isn't ordered, then it will take at most $O(n \log(n))$
+\end{lemma}
+
+\begin{corollary}{Sum of internal angles of triangles}
+    Given any triangle, the sum of its internal angles will always be equal to $180\degree$. Moreover, if the triangle is equilateral, then all its angles will be equal to $60\degree$
+\end{corollary}
+\medskip
+\noindent The \textbf{definition}, \textbf{theorem}, \textbf{lemma} and \textbf{corollary} boxes can be called with:
+\begin{tcolorbox}
+    \begin{verbatim}
+\begin{<box_type>}{<term>}
+    Your text...
+\end{<box_type>}\end{verbatim}
+
+\noindent where \verb|<box_type>| can be one between \texttt{definition}, \texttt{theorem}, \texttt{lemma} and \texttt{corollary}, while instead \verb|<term>| denotes the title of the box
+\end{tcolorbox}
 
 \chapter{The \texttt{notexmacros} package}
 
