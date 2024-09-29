@@ -81,6 +81,8 @@ There are some colors that are added from the class. This list reports all of th
     \begin{tabular}{c l}
         \textbf{Color Preview} & \textbf{Name of the color} \\
         \hline
+        \littlebox{theoremBG} & \makecell[l]{\texttt{theoremBG}} \\
+        \littlebox{theoremTitleBG} & \makecell[l]{\texttt{theoremTitleBG}} \\
         \littlebox{exerciseBG} & \makecell[l]{\texttt{exerciseBG}} \\
         \littlebox{exerciseTitleBG} & \makecell[l]{\texttt{exerciseTitleBG}} \\
         \littlebox{exampleBG} & \makecell[l]{\texttt{exampleBG}} \\
@@ -95,8 +97,6 @@ There are some colors that are added from the class. This list reports all of th
         \littlebox{curiosityTitleBG} & \makecell[l]{\texttt{curiosityTitleBG}} \\
         % Space adder
         \littlebox{white} & \\
-        \littlebox{white} & \\
-        \littlebox{white} &
     \end{tabular}
 \end{center}
 
@@ -133,9 +133,13 @@ The NoTeX class adds also some custom boxes, which are helpful when there is the
     \texttt{https://thisisanexample.com/usernames}
 \end{definition}
 
-\begin{definition}{Test}
+\begin{theorem}{Spectral Theorem}
+    Given a matrix $A$ which is \textbf{squared} ($A \in \mathbb{R}^{d \times d}$) and \textbf{symmetric} ($A \eq A^\top$), then \textbf{all the eigenvalues} $\lambda_i$ take \textbf{real values} and \textbf{all the eigenvectors} are \textbf{orthogonal}.
+\end{theorem}
+
+\begin{theorem}{Spectral Theorem}
     Test
-\end{definition}
+\end{theorem}
 
 \chapter{The \texttt{notexmacros} package}
 

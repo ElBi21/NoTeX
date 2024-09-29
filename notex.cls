@@ -37,8 +37,8 @@
 \definecolor{lemmaBG}{HTML}{b1e0e8}
 \definecolor{lemmaTitleBG}{HTML}{c1e5eb}
 
-\definecolor{theoremBG}{HTML}{9adfdd}
-\definecolor{theoremTitleBG}{HTML}{a8e3e1}
+\definecolor{theoremBG}{HTML}{70bfbd}
+\definecolor{theoremTitleBG}{HTML}{6ad3d0}
 
 \definecolor{definitionBG}{HTML}{97bcea}
 \definecolor{definitionTitleBG}{HTML}{97cbea}
@@ -75,14 +75,7 @@
 \newcommand{\marbottom}{25mm}
 \newcommand{\martop}{25mm}
 
-\newlength{\myboxheight}
-
-\newcommand{\dynamicfont}[1]{
-    \setlength{\myboxheight}{\ht\@tempboxa} % Measure the height of the box
-    \ifthenelse{\lengthtest{\myboxheight < 10mm}}%
-        {\fontsize{8pt}{8pt}\selectfont\textcolor{white}{\textsc{#1}}}%
-        {\fontsize{11pt}{11pt}\selectfont\textcolor{white}{\textsc{#1}}}%
-}
+\newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
 
 % Boxes
 \newtcolorbox{definition}[1]{
@@ -110,8 +103,37 @@
     skin middle=enhanced,
     skin last=enhanced,
     overlay={
-        %\draw[thick, blue] (0,0) -- (0,0) node[anchor=north] {$x_0+\varepsilon$};
-        \node[rotate=90, anchor=center] at ([xshift=1.5mm, yshift=-9.1mm]frame.north west) {\dynamicfont{Definition}};
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Define}};
+    },
+    after upper={\global\setbox\@tempboxa=\hbox{\unhbox\@tempboxa}}
+}
+
+\newtcolorbox{theorem}[1]{
+    title=\fontfamily{ppl}\selectfont{{#1}},
+    coltitle=black,
+    halign title=left,
+    attach boxed title to top left = {
+        xshift=6mm,
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    boxed title style = {
+        colback=theoremTitleBG!65!white!80,
+        rounded corners=all,
+        arc=2.5mm,
+    },
+    colback=theoremBG!30,
+    colframe=theoremBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-0.8mm]frame.north west) {\boxdesc{Theorem}};
     },
     after upper={\global\setbox\@tempboxa=\hbox{\unhbox\@tempboxa}}
 }
