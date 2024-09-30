@@ -27,6 +27,7 @@
 \RequirePackage{notexmacros}            % Package with macros
 \RequirePackage{amsmath}
 \RequirePackage{gensymb}
+\RequirePackage{fontawesome5}
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 
@@ -48,8 +49,10 @@
 \definecolor{corollaryBG}{HTML}{8293e5}
 \definecolor{corollaryTitleBG}{HTML}{7b94ec}
 
-\definecolor{proofBG}{HTML}{d8c3f0}
-\definecolor{proofTitleBG}{HTML}{ceb2ed}
+\definecolor{proofBG}{HTML}{40a560}
+
+\definecolor{codeBG}{HTML}{554e63}
+\definecolor{codeTitleBG}{HTML}{7b94ec}
 
 \definecolor{exerciseBG}{HTML}{faf0bc} % fcdf9c
 \definecolor{exerciseTitleBG}{HTML}{fff2af} % ffd87e
@@ -68,6 +71,12 @@
 \definecolor{curiosityLINE}{HTML}{43a82e} % - 41b9e4
 \definecolor{curiosityTitleBG}{HTML}{c0f5b5} % - beedfe
 
+\definecolor{codeCOMMENT}{HTML}{649541} % 98C379
+\definecolor{codeSTRING}{HTML}{37864A} % 60A470
+\definecolor{codeKEY}{HTML}{C678DD}
+\definecolor{codeFUNC}{HTML}{61AFEF}
+\definecolor{codeVALUES}{HTML}{C69438} % E5C07B
+
 % --- Commands ---
 
 % Class related
@@ -77,7 +86,10 @@
 \newcommand{\marbottom}{25mm}
 \newcommand{\martop}{25mm}
 
+\renewcommand*\ttdefault{lmvtt}
+
 \newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
+\newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
 
 % Boxes
 \newtcolorbox{definition}[1]{
@@ -133,9 +145,11 @@
     skin first=enhanced,
     skin middle=enhanced,
     skin last=enhanced,
+    skin=bicolor,
     overlay={
         \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-0.8mm]frame.north west) {\boxdesc{Theorem}};
     },
+    colbacklower=proofBG,
 }
 
 \newtcolorbox{lemma}[1]{
@@ -196,7 +210,64 @@
     },
 }
 
+\newtcolorbox{proof}{
+    colback=proofBG!25,
+    colframe=proofBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    sharp corners=north,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    grow to left by=8mm,
+    grow to right by=5.5mm,
+    enlarge bottom finally by=-3.5mm,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Proof}};
+    },
+}
 
+\newtcolorbox{codeblock}{
+    colback=codeBG!15,
+    colframe=codeBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Code}};
+    },
+}
+
+
+% LSTListing Style
+
+\lstdefinestyle{normsty}{
+    commentstyle=\codetextstyle\color{codeCOMMENT},
+    keywordstyle=\codetextstyle\color{codeKEY},
+    numberstyle=\ttfamily\linespread{1}\scriptsize\ttfamily\color{codeVALUES},
+    stringstyle=\codetextstyle\color{codeSTRING},
+    basicstyle=\codetextstyle\color{black!80},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+}
+
+\lstset{style=normsty}
 
 
 %% --- Class options ---
