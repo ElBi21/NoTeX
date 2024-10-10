@@ -54,7 +54,7 @@
 \definecolor{codeBG}{HTML}{554e63}
 \definecolor{codeTitleBG}{HTML}{7b94ec}
 
-\definecolor{exerciseBG}{HTML}{faf0bc} % fcdf9c
+\definecolor{exerciseBG}{HTML}{c4af3d} % fcdf9c
 \definecolor{exerciseTitleBG}{HTML}{fff2af} % ffd87e
 
 \definecolor{exampleBG}{HTML}{ffd39a} % fcdf9c
@@ -90,6 +90,10 @@
 
 \newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
 \newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
+
+% Counters
+\newcounter{examplecounter}
+\newcounter{exercisecounter}
 
 % Boxes
 \newtcolorbox{definition}[1]{
@@ -227,6 +231,24 @@
     enlarge bottom finally by=-3.5mm,
     overlay={
         \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Proof}};
+    },
+}
+
+\newtcolorbox{exercise}{enhanced,
+    coltitle=black,
+    halign title=left,
+    colback=exerciseBG!30,
+    colframe=exerciseBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Exercise \thesection.\theexamplecounter \addtocounter{exercisecounter}{1}}};
     },
 }
 
