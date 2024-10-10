@@ -9,6 +9,14 @@
 %  5. Class Options
 % ---+---+---+---+---+---+---+---+---+---
 
+%% --- Class options ---
+
+%\DeclareOption{includemacros}{
+    %\typeout{Including the notexmacros package...}
+%    \RequirePackage{notexmacros}
+%} % Package with macros
+%\ProcessOptions\relax               % Process the options
+
 % --- Load class ---
 \LoadClass[10pt, letterpaper]{report}                % Loads the report class, which allows for the \chapter command
 
@@ -269,13 +277,7 @@
 \lstset{style=normsty}
 
 
-%% --- Class options ---
 
-\DeclareOption{includemacros}{
-    \typeout{Including the notexmacros package...}
-    \RequirePackage{notexmacros}
-} % Package with macros
-\ProcessOptions\relax               % Process the options
 
 %% --- Post-Load setups
 \geometry{
