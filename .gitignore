@@ -1,4 +1,5 @@
 *.maf
 *.log
 *.synctex.gz
-.idea
+.idea/
+test/

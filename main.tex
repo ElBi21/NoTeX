@@ -1,4 +1,4 @@
-\documentclass[]{notex}
+\documentclass[includemacros]{notex}
 
 \usepackage{blindtext}
 \usepackage{makecell}
@@ -6,6 +6,9 @@
 
 \input{doc/documentation_settings.tex}
 \newcommand{\becomes}[1]{\hspace{#1} $\--$becomes$\rightarrow$ \hspace{#1}}
+\newcommand{\littlebox}[1]{\begin{tikzpicture}
+    \fill[#1, very thick] (0, 0) rectangle (1, 0.5);
+\end{tikzpicture}}
 
 \title{NoTeX}
 \author{ElBi21 - Leonardo Biason}
@@ -50,7 +53,51 @@ The following packages are imported into the \texttt{notex.cls} class file:
     \end{verbatim}
 \end{tcolorbox}
 
+\pagebreak
 \section{Custom colors}
+
+There are some colors that are added from the class. This list reports all of them, alongside a quick preview:
+
+\begin{center}
+    \begin{tabular}{c l}
+        \textbf{Color Preview} & \textbf{Name of the color} \\
+        \hline
+        \littlebox{maindoccol} & \makecell[l]{\texttt{maindoccol}} \\
+        \hline
+        \littlebox{theoryLINE} & \makecell[l]{\texttt{theoryLINE}} \\
+        \littlebox{practiceLINE} & \makecell[l]{\texttt{practiceLINE}} \\
+        \littlebox{curiosityLINE} & \makecell[l]{\texttt{curiosityLINE}} \\
+        \littlebox{remarkLINE} & \makecell[l]{\texttt{remarkLINE}} \\
+        \hline
+        \littlebox{lemmaBG} & \makecell[l]{\texttt{lemmaBG}} \\
+        \littlebox{lemmaTitleBG} & \makecell[l]{\texttt{lemmaTitleBG}} \\
+        \littlebox{definitionBG} & \makecell[l]{\texttt{definitionBG}} \\
+        \littlebox{definitionTitleBG} & \makecell[l]{\texttt{definitionTitleBG}} \\
+        \littlebox{corollaryBG} & \makecell[l]{\texttt{corollaryBG}} \\
+        \littlebox{corollaryTitleBG} & \makecell[l]{\texttt{corollaryTitleBG}} \\
+        \littlebox{proofBG} & \makecell[l]{\texttt{proofBG}} \\
+    \end{tabular}
+    \begin{tabular}{c l}
+        \textbf{Color Preview} & \textbf{Name of the color} \\
+        \hline
+        \littlebox{theoremBG} & \makecell[l]{\texttt{theoremBG}} \\
+        \littlebox{theoremTitleBG} & \makecell[l]{\texttt{theoremTitleBG}} \\
+        \littlebox{exerciseBG} & \makecell[l]{\texttt{exerciseBG}} \\
+        \littlebox{exerciseTitleBG} & \makecell[l]{\texttt{exerciseTitleBG}} \\
+        \littlebox{exampleBG} & \makecell[l]{\texttt{exampleBG}} \\
+        \littlebox{exampleTitleBG} & \makecell[l]{\texttt{exampleTitleBG}} \\
+        \littlebox{solutionBG} & \makecell[l]{\texttt{solutionBG}} \\
+        \littlebox{solutionTitleBG} & \makecell[l]{\texttt{solutionTitleBG}} \\
+        \hline
+        \littlebox{remarkBG} & \makecell[l]{\texttt{remarkBG}} \\
+        \littlebox{remarkTitleBG} & \makecell[l]{\texttt{remarkTitleBG}} \\
+        \hline
+        \littlebox{curiosityBG} & \makecell[l]{\texttt{curiosityBG}} \\
+        \littlebox{curiosityTitleBG} & \makecell[l]{\texttt{curiosityTitleBG}} \\
+        % Space adder
+        %\littlebox{white} & \\
+    \end{tabular}
+\end{center}
 
 \section{Commands of the class}
 
@@ -72,6 +119,71 @@ This class provides various commands, which allow to customize to your liking th
 \end{itemize}
 
 \section{Loading of the class}
+
+\section{Custom boxes}
+
+The NoTeX class adds also some custom boxes, which are helpful when there is the need to mark some important parts of the text, such as definitions, theorems, proofs, code, etc... Here is a showcase of all the boxes and how they can interact with each other.
+
+\begin{definition}{Uniform Resource Identifier (URI)}
+    A \textbf{Uniform Resource Identifier} (\textbf{URI} for short) is a unique sequence of characters which identifies a logical or physical resource. An example of URI might be:
+    
+    \medskip
+
+    \texttt{https://thisisanexample.com/usernames}
+\end{definition}
+
+\begin{theorem}{Spectral Theorem}
+    Given a matrix $A$ which is \textbf{squared} ($A \in \mathbb{R}^{d \times d}$) and \textbf{symmetric} ($A \eq A^\top$), then \textbf{all the eigenvalues} $\lambda_i$ take \textbf{real values} and \textbf{all the eigenvectors} are \textbf{orthogonal}
+    
+    \begin{proof}
+        This can be easily proved as follows:\\
+        \noindent The $\nabla$ is equal to 1\\
+        \noindent The matrices are equal
+    \end{proof}
+\end{theorem}
+
+\begin{lemma}{Running time of the algorithm}
+    If the algorithm receives as an input an ordered list of items, then its running time will be at most $O(n)$. If the list isn't ordered, then it will take at most $O(n \log(n))$
+
+    \begin{proof}
+        In order to prove this algorithm, we must first consider the running time of the sub-algorithm. Indeed, we'll obtain that:
+        \[ \text{runtime} \eq O(n \log(n)) + O(n) \]
+    \end{proof}
+\end{lemma}
+
+\begin{corollary}{Sum of internal angles of triangles}
+    Given any triangle, the sum of its internal angles will always be equal to $180\degree$. Moreover, if the triangle is equilateral, then all its angles will be equal to $60\degree$
+\end{corollary}
+\medskip
+\noindent The \textbf{definition}, \textbf{theorem}, \textbf{lemma} and \textbf{corollary} boxes can be called with:
+\begin{tcolorbox}
+    \begin{verbatim}
+\begin{<box_type>}{<term>}
+    Your text...
+\end{<box_type>}\end{verbatim}
+
+\noindent where \verb|<box_type>| can be one between \texttt{definition}, \texttt{theorem}, \texttt{lemma} and \texttt{corollary}, while instead \verb|<term>| denotes the title of the box
+\end{tcolorbox}
+
+\noindent It is instead possible to invoke the \textbf{proof} box by using the following command:
+
+\begin{tcolorbox}
+    \begin{verbatim}
+\begin{proof}
+    Your proof...
+\end{proof}\end{verbatim}
+\end{tcolorbox}
+
+\noindent The proof box can be used anywhere, it is however thought for the \textbf{theorem} and \textbf{lemma} boxes (since definitions and corollary should not need proofs).
+
+\begin{codeblock}
+    \begin{lstlisting}[language = Python]
+def main():
+    for i in range(40):
+        print(i)
+    return None\end{lstlisting}
+\end{codeblock}
+
 
 \chapter{The \texttt{notexmacros} package}
 
@@ -125,6 +237,15 @@ This class provides various commands, which allow to customize to your liking th
 \end{center}
 
 \section{The \texttt{text} macros}
+
+\begin{tcolorbox}
+    \verb|\angbrack{}|
+\end{tcolorbox}
+
+\noindent Wraps the content between two angle brackets. Works both in a \texttt{math} and in a non-\texttt{math} environment. An example follows:
+\begin{center}
+    \verb|\angbrack{10}| \becomes{20pt} \angbrack{10}
+\end{center}
 
 \begin{tcolorbox}
     \verb|\st|, \verb|\nd|, \verb|\rd| and \verb|\nth|
