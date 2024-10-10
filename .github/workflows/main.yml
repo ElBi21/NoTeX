@@ -13,9 +13,12 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
 
-      - name: Install the packages
+      - name: Install Tectonic
         run: |
-          git status
-          #sudo apt-get install build-essential cmake pkg-config libicu-dev zlib1g-dev libcurl4-openssl-dev libssl-dev ruby-dev
-          sudo gem install github-linguist
-          github-linguist
+          sudo apt install curl
+          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+
+      - name: Compile the template
+        run: |
+          tectonic main.tex -Z continue-on-errors --color=always
+

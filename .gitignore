@@ -1,5 +1,6 @@
 *.maf
 *.log
 *.synctex.gz
+*.pdf
 .idea/
 test/
