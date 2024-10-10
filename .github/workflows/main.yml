@@ -6,8 +6,8 @@ on:
     - old
 
 jobs:
-  run_linguist:
-    name: Run github-linguist on the repo
+  run_tectonic:
+    name: Run tectonic on the repo
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -20,5 +20,5 @@ jobs:
 
       - name: Compile the template
         run: |
-          tectonic main.tex -Z continue-on-errors --color=always
+          ./tectonic main.tex -Z continue-on-errors --color=always
 
