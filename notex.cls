@@ -24,7 +24,6 @@
 \RequirePackage{fouriernc}              % Package with the font
 %\RequirePackage{sourcecodepro}
 
-\RequirePackage{notexmacros}            % Package with macros
 \RequirePackage{amsmath}
 \RequirePackage{gensymb}
 \RequirePackage{fontawesome5}
@@ -271,8 +270,12 @@
 
 
 %% --- Class options ---
-%\DeclareOption{maincol}{\typeout{Saw foo.}}
-%\ProcessOptions\relax               % Process the options
+
+\DeclareOption{includemacros}{
+    \typeout{Including the notexmacros package...}
+    \RequirePackage{notexmacros}
+} % Package with macros
+\ProcessOptions\relax               % Process the options
 
 %% --- Post-Load setups
 \geometry{
