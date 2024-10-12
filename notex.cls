@@ -61,11 +61,11 @@
 \definecolor{codeBG}{HTML}{554e63}
 \definecolor{codeTitleBG}{HTML}{7b94ec}
 
-\definecolor{exerciseBG}{HTML}{faf0bc} % fcdf9c
-\definecolor{exerciseTitleBG}{HTML}{fff2af} % ffd87e
+\definecolor{exerciseBG}{HTML}{e7c650} % fcdf9c
+\definecolor{exerciseTitleBG}{HTML}{f5e48e} % ffd87e
 
-\definecolor{exampleBG}{HTML}{ffd39a} % fcdf9c
-\definecolor{exampleTitleBG}{HTML}{ffe3be} % ffd87e
+\definecolor{exampleBG}{HTML}{e59c3d} % fcdf9c
+\definecolor{exampleTitleBG}{HTML}{f8d3a2} % ffd87e
 
 \definecolor{solutionBG}{HTML}{c4f8e1} % - a5e3fa -  
 \definecolor{solutionTitleBG}{HTML}{9cffd3} % - beedfe - 
@@ -97,6 +97,10 @@
 
 \newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
 \newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
+
+% Counters
+\newcounter{examplecounter}
+\newcounter{exercisecounter}
 
 % Boxes
 \newtcolorbox{definition}[1]{
@@ -234,6 +238,67 @@
     enlarge bottom finally by=-3.5mm,
     overlay={
         \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Proof}};
+    },
+}
+
+\newtcolorbox{exercise}{
+    title=\fontfamily{ppl}\selectfont{{\fontsize{8}{8}\selectfont \faPencil*} \; \thesection.\theexercisecounter \addtocounter{exercisecounter}{1}},
+    coltitle=black,
+    halign title=left,
+    attach boxed title to top left = {
+        xshift=6mm,
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    boxed title style = {
+        colback=exerciseTitleBG!65!white!80,
+        rounded corners=all,
+        arc=2.5mm,
+    },
+    enhanced,
+    colback=exerciseBG!30,
+    colframe=exerciseBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Exercise}};
+    },
+}
+
+\newtcolorbox{example}{
+    title=\fontfamily{ppl}\selectfont{{\fontsize{8}{10}\selectfont \faLightbulb} \; \thesection.\theexamplecounter \addtocounter{examplecounter}{1}},
+    coltitle=black,
+    halign title=left,
+    attach boxed title to top left = {
+        xshift=6mm,
+        yshift=-\tcboxedtitleheight/2,
+        yshifttext=-\tcboxedtitleheight/2
+    },
+    boxed title style = {
+        colback=exampleTitleBG!65!white!80,
+        rounded corners=all,
+        arc=2.5mm,
+        leftrule=1mm,
+    },
+    enhanced,
+    colback=exampleBG!30,
+    colframe=exampleBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Example}};
     },
 }
 
