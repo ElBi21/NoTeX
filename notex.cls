@@ -36,6 +36,8 @@
 \RequirePackage{gensymb}
 \RequirePackage{fontawesome5}
 
+\RequirePackage{graphicx}
+
 \tcbuselibrary{most}                    % Loads tcolorbox options
 
 % --- Colors ---
