@@ -33,6 +33,7 @@
 %\RequirePackage{sourcecodepro}
 
 \RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{gensymb}
 \RequirePackage{fontawesome5}
 
