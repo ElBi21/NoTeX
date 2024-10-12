@@ -40,6 +40,7 @@
 \RequirePackage{graphicx}
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
+\DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
 
 % --- Colors ---
 \definecolor{maindoccol}{HTML}{6E000D}  % Standard color, can be overwritten with \maincol
