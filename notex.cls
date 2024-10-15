@@ -39,6 +39,7 @@
 \RequirePackage{fontawesome5}
 
 \RequirePackage{graphicx}
+\RequirePackage{multirow}
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 \DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
