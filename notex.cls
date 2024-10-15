@@ -30,7 +30,8 @@
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
-%\RequirePackage{sourcecodepro}
+\RequirePackage{cascadia-code}
+%\RequirePackage[nottdefault]{sourcecodepro}
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -313,13 +314,13 @@
     breakable,
     rounded corners=all,
     arc=1mm,
-    leftrule=3mm,
+    %leftrule=3mm,
     skin first=enhanced,
     skin middle=enhanced,
     skin last=enhanced,
-    overlay={
-        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Code}};
-    },
+    %overlay={
+    %    \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Code}};
+    %},
 }
 
 
