@@ -21,7 +21,7 @@
 \LoadClass[10pt, letterpaper]{report}                % Loads the report class, which allows for the \chapter command
 
 % --- Packages Section ---
-\RequirePackage{xcolor}                 % Package for colors
+\RequirePackage[dvipsnames]{xcolor}                 % Package for colors
 \RequirePackage{tcolorbox}              % Package for boxes
 \RequirePackage[a4paper]{geometry}      % Package for the geometry of the file
 \RequirePackage{listings}               % Package for code
@@ -314,13 +314,16 @@
     breakable,
     rounded corners=all,
     arc=1mm,
-    %leftrule=3mm,
+    toprule=3mm,
     skin first=enhanced,
     skin middle=enhanced,
     skin last=enhanced,
-    %overlay={
-    %    \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Code}};
-    %},
+    overlay={
+        %\node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Code}};
+        \filldraw[OrangeRed] ([xshift=3mm, yshift=-1.5mm]frame.north west) circle (1mm);
+        \filldraw[Dandelion] ([xshift=6mm, yshift=-1.5mm]frame.north west) circle (1mm);
+        \filldraw[YellowGreen] ([xshift=9mm, yshift=-1.5mm]frame.north west) circle (1mm);
+    },
 }
 
 
