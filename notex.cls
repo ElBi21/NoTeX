@@ -324,7 +324,7 @@
     rounded corners=all,
     arc=1mm,
     toprule=4mm,
-    enlarge top initially by=-0.8mm,
+    enlarge top initially by=1mm,
     enlarge bottom by=0.5mm,
     skin first=enhanced,
     skin middle=enhanced,
@@ -345,7 +345,7 @@
     rounded corners=all,
     arc=1mm,
     toprule=4mm,
-    enlarge top initially by=-0.8mm,
+    enlarge top initially by=1mm,
     enlarge bottom by=0.5mm,
     skin first=enhanced,
     skin middle=enhanced,
@@ -362,11 +362,11 @@
 % LSTListing Style
 
 \lstdefinestyle{notexstand}{
-    commentstyle=\ttfamily\color{codeCOMMENT},
-    keywordstyle=\ttfamily\color{codeKEY},
-    numberstyle=\ttfamily\linespread{1}\scriptsize\color{codeVALUES},
-    stringstyle=\ttfamily\color{codeSTRING},
-    basicstyle=\ttfamily\color{black!80},
+    commentstyle=\color{codeCOMMENT},
+    keywordstyle=\color{codeKEY},
+    numberstyle=\scriptsize\color{codeVALUES},
+    stringstyle=\color{codeSTRING},
+    basicstyle=\ttfamily\linespread{0.8}\selectfont\color{black!80},
     breakatwhitespace=false,
     breaklines=true,
     captionpos=b,
@@ -380,14 +380,14 @@
     basewidth=0.44em,
     aboveskip=0pt,
     belowskip=0pt,
+    showlines=false
 }
 
 \lstdefinestyle{notexterm}{
-    commentstyle=\ttfamily\color{codeCOMMENT},
-    keywordstyle=\ttfamily\color{codeKEY},
-    numberstyle=\ttfamily\linespread{1}\scriptsize\color{codeVALUES},
-    stringstyle=\ttfamily\color{codeSTRING},
-    basicstyle=\ttfamily\color{white!80},
+    commentstyle=\color{codeCOMMENT!70},
+    keywordstyle=\color{codeKEY},
+    stringstyle=\color{codeSTRING},
+    basicstyle=\ttfamily\linespread{0.8}\selectfont\color{white!80},
     breakatwhitespace=false,
     breaklines=true,
     captionpos=b,
@@ -399,8 +399,9 @@
     basewidth=0.44em,
     aboveskip=0pt,
     belowskip=0pt,
-    language = bash,
-    numbers=none
+    language=bash,
+    numbers=none,
+    showlines=false
 }
 
 \lstset{style=notexstand}
