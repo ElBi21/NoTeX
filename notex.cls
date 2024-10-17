@@ -18,19 +18,21 @@
 %\ProcessOptions\relax               % Process the options
 
 % --- Load class ---
-\LoadClass[10pt, letterpaper]{report}                % Loads the report class, which allows for the \chapter command
+\LoadClass[10pt, letterpaper]{report}   % Loads the report class, which allows for the \chapter command
 
 % --- Packages Section ---
-\RequirePackage[dvipsnames]{xcolor}                 % Package for colors
+\RequirePackage[dvipsnames]{xcolor}     % Package for colors
 \RequirePackage{tcolorbox}              % Package for boxes
 \RequirePackage[a4paper]{geometry}      % Package for the geometry of the file
 \RequirePackage{listings}               % Package for code
 \RequirePackage{ifthen}                 % Package for class logic
 \RequirePackage{calc}                   % Package for calculating logic
+\RequirePackage{tikz}                   % Package for drawings
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
-\RequirePackage{cascadia-code}
+\RequirePackage{courier}
+%\RequirePackage{cascadia-code}
 %\RequirePackage[nottdefault]{sourcecodepro}
 
 \RequirePackage{amsmath}
@@ -99,7 +101,7 @@
 \newcommand{\marbottom}{25mm}
 \newcommand{\martop}{25mm}
 
-\renewcommand*\ttdefault{lmvtt}
+\renewcommand*\ttdefault{lmtt}
 
 \newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
 \newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
@@ -314,36 +316,57 @@
     },
 }
 
-\newtcolorbox{codeblock}{
+\newtcolorbox{codeblock}[1]{
     colback=codeBG!15,
     colframe=codeBG!90,
     enhanced,
     breakable,
     rounded corners=all,
     arc=1mm,
-    toprule=3mm,
+    toprule=4mm,
     enlarge top initially by=-0.8mm,
     enlarge bottom by=0.5mm,
     skin first=enhanced,
     skin middle=enhanced,
     skin last=enhanced,
     overlay={
-        %\node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Code}};
-        \filldraw[OrangeRed] ([xshift=3mm, yshift=-1.5mm]frame.north west) circle (1mm);
-        \filldraw[Dandelion] ([xshift=6mm, yshift=-1.5mm]frame.north west) circle (1mm);
-        \filldraw[YellowGreen] ([xshift=9mm, yshift=-1.5mm]frame.north west) circle (1mm);
+        \filldraw[OrangeRed] ([xshift=3mm, yshift=-2mm]frame.north west) circle (1mm);
+        \filldraw[Dandelion] ([xshift=6mm, yshift=-2mm]frame.north west) circle (1mm);
+        \filldraw[YellowGreen] ([xshift=9mm, yshift=-2mm]frame.north west) circle (1mm);
+        \node[anchor=north] at ([yshift=0.1mm]frame.north) {\fontsize{8}{8}\selectfont\textcolor{white}{\texttt{#1}}};
+    },
+}
+
+\newtcolorbox{terminal}{
+    colback=black!95!Periwinkle!90,
+    colframe=codeBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    toprule=4mm,
+    enlarge top initially by=-0.8mm,
+    enlarge bottom by=0.5mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \filldraw[OrangeRed] ([xshift=3mm, yshift=-2mm]frame.north west) circle (1mm);
+        \filldraw[Dandelion] ([xshift=6mm, yshift=-2mm]frame.north west) circle (1mm);
+        \filldraw[YellowGreen] ([xshift=9mm, yshift=-2mm]frame.north west) circle (1mm);
+        \node[anchor=north] at ([yshift=0.1mm]frame.north) {\fontsize{8}{8}\selectfont\textcolor{white}{\texttt{Terminal}}};
     },
 }
 
 
 % LSTListing Style
 
-\lstdefinestyle{normsty}{
-    commentstyle=\codetextstyle\color{codeCOMMENT},
-    keywordstyle=\codetextstyle\color{codeKEY},
-    numberstyle=\ttfamily\linespread{1}\scriptsize\ttfamily\color{codeVALUES},
-    stringstyle=\codetextstyle\color{codeSTRING},
-    basicstyle=\codetextstyle\color{black!80},
+\lstdefinestyle{notexstand}{
+    commentstyle=\ttfamily\color{codeCOMMENT},
+    keywordstyle=\ttfamily\color{codeKEY},
+    numberstyle=\ttfamily\linespread{1}\scriptsize\color{codeVALUES},
+    stringstyle=\ttfamily\color{codeSTRING},
+    basicstyle=\ttfamily\color{black!80},
     breakatwhitespace=false,
     breaklines=true,
     captionpos=b,
@@ -354,9 +377,33 @@
     showstringspaces=false,
     showtabs=false,
     tabsize=4,
+    basewidth=0.44em,
+    aboveskip=0pt,
+    belowskip=0pt,
 }
 
-\lstset{style=normsty}
+\lstdefinestyle{notexterm}{
+    commentstyle=\ttfamily\color{codeCOMMENT},
+    keywordstyle=\ttfamily\color{codeKEY},
+    numberstyle=\ttfamily\linespread{1}\scriptsize\color{codeVALUES},
+    stringstyle=\ttfamily\color{codeSTRING},
+    basicstyle=\ttfamily\color{white!80},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    basewidth=0.44em,
+    aboveskip=0pt,
+    belowskip=0pt,
+    language = bash,
+    numbers=none
+}
+
+\lstset{style=notexstand}
 
 
 
@@ -367,8 +414,4 @@
     right=\marright ,
     top=\martop ,
     bottom=\marbottom
-}
-
-\lstdefinestyle{notexstand}{
-    basicstyle = \ttfamily\footnotesize,
 }
