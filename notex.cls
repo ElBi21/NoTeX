@@ -86,6 +86,8 @@
 \definecolor{curiosityLINE}{HTML}{43a82e} % - 41b9e4
 \definecolor{curiosityTitleBG}{HTML}{c0f5b5} % - beedfe
 
+\definecolor{manualBG}{HTML}{aeb0b9}
+
 \definecolor{codeCOMMENT}{HTML}{649541} % 98C379
 \definecolor{codeSTRING}{HTML}{37864A} % 60A470
 \definecolor{codeKEY}{HTML}{C678DD}
@@ -105,6 +107,7 @@
 
 \newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
 \newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
+\newcommand{\manlower}{\tcblower\fontsize{9}{9}\selectfont}
 
 % Counters
 \newcounter{examplecounter}
@@ -355,6 +358,31 @@
         \filldraw[Dandelion] ([xshift=6mm, yshift=-2mm]frame.north west) circle (1mm);
         \filldraw[YellowGreen] ([xshift=9mm, yshift=-2mm]frame.north west) circle (1mm);
         \node[anchor=north] at ([yshift=0.1mm]frame.north) {\fontsize{8}{8}\selectfont\textcolor{white}{\texttt{Terminal}}};
+    },
+}
+
+\newtcolorbox{codedefine}{
+    colback=codeBG!15,
+    colbacklower=manualBG,
+    colframe=codeBG!90,
+    enhanced,
+    breakable,
+    sidebyside,
+    bicolor,
+    righthand ratio=0.38,
+    rounded corners=all,
+    arc=1mm,
+    toprule=4mm,
+    enlarge top initially by=1mm,
+    enlarge bottom by=0.5mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    overlay={
+        \filldraw[OrangeRed] ([xshift=3mm, yshift=-2mm]frame.north west) circle (1mm);
+        \filldraw[Dandelion] ([xshift=6mm, yshift=-2mm]frame.north west) circle (1mm);
+        \filldraw[YellowGreen] ([xshift=9mm, yshift=-2mm]frame.north west) circle (1mm);
+        \node[anchor=north] at ([yshift=0.1mm]frame.north) {\fontsize{8}{8}\selectfont\textcolor{white}{\texttt{Code Manual}}};
     },
 }
 
