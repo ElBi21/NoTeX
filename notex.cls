@@ -18,7 +18,7 @@
 %\ProcessOptions\relax               % Process the options
 
 % --- Load class ---
-\LoadClass[10pt, letterpaper]{report}   % Loads the report class, which allows for the \chapter command
+\LoadClass[12pt, letterpaper]{report}   % Loads the report class, which allows for the \chapter command
 
 % --- Packages Section ---
 \RequirePackage[dvipsnames]{xcolor}     % Package for colors
@@ -105,9 +105,14 @@
 
 \renewcommand*\ttdefault{lmtt}
 
+% Remove indent from beginning of lines
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
 \newcommand{\nl}{
     
-\medskip
+\vspace{12pt}
 
 }
 
@@ -133,7 +138,7 @@
     boxed title style = {
         colback=definitionTitleBG!65!white!80,
         rounded corners=all,
-        arc=2.5mm,
+        arc=8pt,
     },
     colback=definitionBG!30,
     colframe=definitionBG!90,
@@ -163,7 +168,7 @@
     boxed title style = {
         colback=theoremTitleBG!65!white!80,
         rounded corners=all,
-        arc=2.5mm,
+        arc=8pt,
     },
     colback=theoremBG!30,
     colframe=theoremBG!90,
@@ -195,7 +200,7 @@
     boxed title style = {
         colback=lemmaTitleBG!65!white!80,
         rounded corners=all,
-        arc=2.5mm,
+        arc=8pt,
     },
     colback=lemmaBG!30,
     colframe=lemmaBG!90,
@@ -225,7 +230,7 @@
     boxed title style = {
         colback=corollaryTitleBG!65!white!80,
         rounded corners=all,
-        arc=2.5mm,
+        arc=8pt,
     },
     colback=corollaryBG!30,
     colframe=corollaryBG!90,
@@ -275,7 +280,8 @@
     boxed title style = {
         colback=exerciseTitleBG!65!white!80,
         rounded corners=all,
-        arc=2.5mm,
+        arc=8pt,
+        leftrule=1mm,
     },
     enhanced,
     colback=exerciseBG!30,
@@ -306,7 +312,7 @@
     boxed title style = {
         colback=exampleTitleBG!65!white!80,
         rounded corners=all,
-        arc=2.5mm,
+        arc=8pt,
         leftrule=1mm,
     },
     enhanced,
