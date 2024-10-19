@@ -105,6 +105,13 @@
 
 \renewcommand*\ttdefault{lmtt}
 
+\newcommand{\nl}{
+    
+\medskip
+
+}
+
+% Boxes commands
 \newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
 \newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
 \newcommand{\manlower}{\tcblower\fontsize{9}{9}\selectfont}
@@ -369,7 +376,7 @@
     breakable,
     sidebyside,
     bicolor,
-    righthand ratio=0.38,
+    righthand ratio=0.63,
     rounded corners=all,
     arc=1mm,
     toprule=4mm,
