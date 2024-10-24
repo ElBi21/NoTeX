@@ -42,6 +42,7 @@
 
 \RequirePackage{graphicx}
 \RequirePackage{multirow}
+\RequirePackage{nicefrac}
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 \DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
