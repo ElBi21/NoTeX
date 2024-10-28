@@ -383,7 +383,7 @@
     breakable,
     sidebyside,
     bicolor,
-    righthand ratio=0.63,
+    righthand ratio=0.45,
     rounded corners=all,
     arc=1mm,
     toprule=4mm,
