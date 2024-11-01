@@ -28,6 +28,7 @@
 \RequirePackage{ifthen}                 % Package for class logic
 \RequirePackage{calc}                   % Package for calculating logic
 \RequirePackage{tikz}                   % Package for drawings
+\RequirePackage{array}
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
