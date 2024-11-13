@@ -30,6 +30,7 @@
 \RequirePackage{tikz}                   % Package for drawings
 \RequirePackage{array}                  % Package for better tables options
 \RequirePackage{titlesec}               % Package for customizing titles
+\RequirePackage{fancyhdr}
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
@@ -45,6 +46,7 @@
 \RequirePackage{graphicx}               % Package for images
 \RequirePackage{multirow}               % Package for multirows
 \RequirePackage{nicefrac}               % Package for better text fractions
+\RequirePackage{makecell}               % Package for better cell formatting
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 \DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
@@ -452,14 +454,35 @@
 
 %% --- TitleSec options
 
-\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!20}{\raisebox{43pt}{Chapter}\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}
+\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!30}{\raisebox{43pt}{Chapter}\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}
 
+
+%% --- FancyHDR options
+
+\fancypagestyle{fancy}{%
+    \fancyhf{}
+    %\fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{Leonardo Biason} \copyright 2022-2024 - Please refer to the \hyperref[chap:introduction]{introduction} if you want to share this material \normalsize}
+    %\fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyfoot[R]{Page \textbf{\thepage}}
+    %\renewcommand{\footrulewidth}{0.4pt}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    %\fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{Leonardo Biason} \copyright 2022-2024 - Please refer to the \hyperref[chap:introduction]{introduction} if you want to share this material \normalsize}
+    %\fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyfoot[R]{Page \textbf{\thepage}}
+    %\renewcommand{\footrulewidth}{0.4pt}
+}
 
 
 %% --- Post-Load setups
 \geometry{
-    left=\marleft ,
-    right=\marright ,
-    top=\martop ,
+    left=\marleft,
+    right=\marright,
+    top=\martop,
     bottom=\marbottom
 }
+
+\pagestyle{fancy}
