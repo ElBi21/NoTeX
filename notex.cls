@@ -452,7 +452,7 @@
 
 %% --- TitleSec options
 
-\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!20}{\raisebox{43pt}{Chapter}\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-48pt}\fontsize{28pt}{28pt}\selectfont\quad}
+\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!20}{\raisebox{43pt}{Chapter}\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}
 
 
 
