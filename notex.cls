@@ -28,22 +28,23 @@
 \RequirePackage{ifthen}                 % Package for class logic
 \RequirePackage{calc}                   % Package for calculating logic
 \RequirePackage{tikz}                   % Package for drawings
-\RequirePackage{array}
+\RequirePackage{array}                  % Package for better tables options
+\RequirePackage{titlesec}               % Package for customizing titles
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
-\RequirePackage{courier}
+\RequirePackage{courier}                % Package with code font
 %\RequirePackage{cascadia-code}
 %\RequirePackage[nottdefault]{sourcecodepro}
 
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\RequirePackage{gensymb}
-\RequirePackage{fontawesome5}
+\RequirePackage{amsmath}                % Package for math symbols
+\RequirePackage{amssymb}                % Package for symbols
+\RequirePackage{gensymb}                % Package for symbols
+\RequirePackage{fontawesome5}           % Package for icons
 
-\RequirePackage{graphicx}
-\RequirePackage{multirow}
-\RequirePackage{nicefrac}
+\RequirePackage{graphicx}               % Package for images
+\RequirePackage{multirow}               % Package for multirows
+\RequirePackage{nicefrac}               % Package for better text fractions
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 \DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
@@ -449,6 +450,9 @@
 
 \lstset{style=notexstand}
 
+%% --- TitleSec options
+
+\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!20}{\raisebox{43pt}{Chapter}\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-48pt}\fontsize{28pt}{28pt}\selectfont\quad}
 
 
 
