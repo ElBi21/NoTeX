@@ -30,7 +30,9 @@
 \RequirePackage{tikz}                   % Package for drawings
 \RequirePackage{array}                  % Package for better tables options
 \RequirePackage{titlesec}               % Package for customizing titles
-\RequirePackage{fancyhdr}
+\RequirePackage{titletoc}               % Package for customizing toc
+\RequirePackage{fancyhdr}               % Package for the HDR
+\RequirePackage{hyperref}               % Package for links
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
@@ -108,6 +110,9 @@
 \newcommand{\marbottom}{25mm}
 \newcommand{\martop}{25mm}
 
+\newcommand{\sectionname}{Section}
+
+
 \renewcommand*\ttdefault{lmtt}
 
 % Remove indent from beginning of lines
@@ -119,6 +124,67 @@
     
 \vspace{12pt}
 
+}
+
+\contentsmargin{0cm}
+\titlecontents{chapter}[3.7pc]
+{\addvspace{30pt}
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=maindoccol!90,draw=maindoccol!90] (-7, -0.1) rectangle (-0.12, 0.5);
+        \draw[fill=white!60,draw=white!60] (-0.6, -0.15) rectangle (-0.10, 0.55);
+		\pgftext[left,x=-3.5cm,y=0.2cm]{\color{white}\Large\sc\bfseries Chapter\ \color{maindoccol}\Large\sc\bfseries \thecontentslabel};
+	\end{tikzpicture}\color{maindoccol!90} $\quad \blacktriangleright \;$ \large\sc\bfseries}
+{}
+{}
+{\;\titlerule\;\large\sc\bfseries Page \thecontentspage
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=maindoccol!90,draw=maindoccol!90] (2pt,0) rectangle (4,0.1pt);
+	\end{tikzpicture}}
+ 
+\titlecontents{section}[3.7pc]
+{\addvspace{2pt}}
+{\contentslabel[\thecontentslabel]{2pc}}
+{}
+{\hfill\small \thecontentspage}
+[]
+
+\titlecontents{subsection}[6.5pc]
+{\addvspace{1.75pt}}
+{\contentslabel[\thecontentslabel]{2.7pc}}
+{}
+{\hfill\small \thecontentspage}
+[]
+
+\makeatletter
+\renewcommand{\tableofcontents}{
+	\chapter*{
+	  \vspace*{-30\p@}
+	  \begin{tikzpicture}[remember picture, overlay]%
+		  \pgftext[right,x=15cm,y=0.2cm]{\color{maindoccol!90} \Huge\sc\bfseries \contentsname};%
+		  \draw[fill=maindoccol!90,draw=maindoccol!90] (13,-.75) rectangle (20,1);%
+		  \clip (13,-.75) rectangle (20,1);
+		  \pgftext[right,x=15cm,y=0.2cm]{\color{white} \Huge\sc\bfseries \contentsname};%
+	  \end{tikzpicture}}
+	\@starttoc{toc}}
+\makeatother
+
+\newcommand{\notextoc}{
+\pagenumbering{Roman}
+\setcounter{page}{0}
+\pagestyle{plain}
+\pagebreak
+\tableofcontents
+\pagebreak
+\pagestyle{fancy}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    anchorcolor=MidnightBlue,
+    urlcolor=MidnightBlue,
 }
 
 % Boxes commands
@@ -141,7 +207,7 @@
         yshifttext=-\tcboxedtitleheight/2
     },
     boxed title style = {
-        colback=definitionTitleBG!65!white!80,
+        colback=definitionTitleBG!55,
         rounded corners=all,
         arc=8pt,
     },
@@ -171,7 +237,7 @@
         yshifttext=-\tcboxedtitleheight/2
     },
     boxed title style = {
-        colback=theoremTitleBG!65!white!80,
+        colback=theoremTitleBG!55,
         rounded corners=all,
         arc=8pt,
     },
@@ -454,26 +520,28 @@
 
 %% --- TitleSec options
 
-\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{Chapter}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}
+\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{\chaptername}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}
+
+%\titleformat{\section}[block]{\begin{tikzpicture}\draw[white](0,1) circle (0.1pt) node [anchor = south] {\thesection};draw[white](0,1) circle (0.1pt) node [anchor = north] {\textsc{\textcolor{gray!50}{\sectionname}}}\end{tikzpicture}}{0pt}{\quad}
 
 
 %% --- FancyHDR options
 
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\textsc{\chaptername\ \thechapter}}\ \textbullet\ #1}{}}
+
 \fancypagestyle{fancy}{%
     \fancyhf{}
-    %\fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{Leonardo Biason} \copyright 2022-2024 - Please refer to the \hyperref[chap:introduction]{introduction} if you want to share this material \normalsize}
-    %\fancyhead[R]{\nouppercase{\rightmark}}
+    \fancyhead[L]{\leftmark}
     \fancyfoot[R]{Page \textbf{\thepage}}
-    %\renewcommand{\footrulewidth}{0.4pt}
-    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.1pt}
+    \renewcommand{\headrulewidth}{0.1pt}
 }
 
 \fancypagestyle{plain}{%
     \fancyhf{}
-    %\fancyfoot[C]{\footnotesize Made by \href{https://www.leonardobiason.com}{Leonardo Biason} \copyright 2022-2024 - Please refer to the \hyperref[chap:introduction]{introduction} if you want to share this material \normalsize}
-    %\fancyhead[R]{\nouppercase{\rightmark}}
     \fancyfoot[R]{Page \textbf{\thepage}}
-    %\renewcommand{\footrulewidth}{0.4pt}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0.1pt}
 }
 
 
