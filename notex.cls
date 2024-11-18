@@ -170,7 +170,7 @@
 
 \newcommand{\notextoc}{
 \pagenumbering{Roman}
-\setcounter{page}{0}
+\setcounter{page}{1}
 \pagestyle{plain}
 \pagebreak
 \tableofcontents
