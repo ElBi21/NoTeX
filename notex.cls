@@ -195,6 +195,7 @@
 % Counters
 \newcounter{examplecounter}
 \newcounter{exercisecounter}
+\setcounter{MaxMatrixCols}{20}
 
 % Boxes
 \newtcolorbox{definition}[1]{
