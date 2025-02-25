@@ -17,7 +17,8 @@
 
 \begin{document}
 
-\maketitle
+%\maketitle
+\input{notextitle}
 
 \chapter{Introduction}
 
@@ -202,9 +203,38 @@ def main():
 $ mpicc 01-mpi-collectives.c -o 01-mpi-collectives.o\end{lstlisting}
 \end{terminal}
 
-\texttt{Hello there}
+\chapter{The title page}
 
-%\fontfamily{cascadia-code}\selectfont{AAA}
+NoTeX also offers the possibility of having a custom title page. Clearly, you are free to edit it to your liking. The template comes with some pre-defined values, and has the following structure:
+
+\begin{center}
+    \begin{tikzpicture}
+        \node [inner sep=0pt] at (centerpoint) {
+            \setlength{\fboxsep}{0pt}
+            \setlength{\fboxrule}{0.5pt}
+            \fbox{\includegraphics[width=0.5\linewidth]{assets/title-page.pdf}}
+        };
+        \draw[red!60, thick, <-] (6.25, 8.15) -- (2.5, 8.15) node[anchor=east]{Header};
+        \draw[red!60, thick, <-] (4.5, 4.5) -- (2.5, 4.5) node[anchor=east]{Cover};
+        \draw[red!60, thick, <-] (6, 1.14) -- (2.5, 1.14) node[anchor=east]{Subtitle};
+
+        \draw[red!60, thick, <-] (9, 6.65) -- (12.75, 6.65) node[anchor=west]{Title};
+        \draw[red!60, thick, <-] (9, 1.35) -- (12.75, 1.35) node[anchor=west]{Author};
+        \draw[red!60, thick, <-] (8.5, -0.05) -- (12.75, -0.05) node[anchor=west]{Footer};
+    \end{tikzpicture}
+\end{center}
+
+You can edit the following parts by renewing the commands with the \verb|\renewcommand| command:
+\begin{itemize}
+    \item \textbf{header}: renew \verb|\titleheader| with what you want to put into the header. You can put anything you'd like, images included;
+    \item \textbf{title}: renew \verb|\titlecourse| with the name of the course that would go on the title. Only text is allowed, any other item will result in unknown behaviour;
+    \item \textbf{cover}: renew \verb|\titlecover| with the path of the image you want to replace. Only paths are allowed, any other item will result in unknown behaviour;
+    \item \textbf{author}: renew \verb|\titleauthor| with your name. Only text is allowed, any other item will result in unknown behaviour;
+    \item \textbf{subtitle}: renew \verb|\titlesubtitle| with the subtitle that you desire. Only text is allowed, any other item will result in unknown behaviour;
+    \item \textbf{footer}: renew \verb|\titlefooter| with anything you want to put into the footer. You can put anything you'd like, images included.
+\end{itemize}
+
+If you don't like the title page, you are free to edit it or to add your own version. If you want a more "classic" title page, you can use the \verb|\title|, \verb|\author| and all the other standard commands provided by \LaTeX.
 
 \chapter{The \texttt{notexmacros} package}
 

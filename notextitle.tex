@@ -1,0 +1,31 @@
+\begin{titlepage}
+    \begin{center}
+        \titleheader
+        \vspace{0.75cm}
+
+        \hrule
+        \vspace{2cm}
+        {\huge \textbf{\textsc{\titlecourse}}}
+        \linebreak
+        
+        \vspace{1.5cm}
+        \begin{tikzpicture}
+            \begin{scope}
+                \clip [rounded corners=.5cm] (0, 0) rectangle coordinate (centerpoint) (15, 7.5cm); 
+                \node [inner sep=0pt] at (centerpoint) {\includegraphics[width=\linewidth]{\titlecover}}; 
+            \end{scope}
+        \end{tikzpicture}
+        \vspace{2.5cm}
+
+        \hrule
+        
+        \vspace{1.5cm}
+        {\Large \textsc{Notes by \titleauthor}}
+        \linebreak
+        {\large \textsc{\titlesubtitle}}
+        \linebreak
+        
+        \vspace{2cm}
+        \titlefooter
+    \end{center}
+\end{titlepage}

@@ -37,8 +37,6 @@
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
 \RequirePackage{courier}                % Package with code font
-%\RequirePackage{cascadia-code}
-%\RequirePackage[nottdefault]{sourcecodepro}
 
 \RequirePackage{amsmath}                % Package for math symbols
 \RequirePackage{amssymb}                % Package for symbols
@@ -103,6 +101,21 @@
 
 % --- Commands ---
 
+% Title page
+\newcommand{\titleheader}{
+    {\Large \textbf{\textsc{Your University}}}
+    \linebreak
+    {\large \textsc{Your Course}}
+
+    \vspace{0.05cm}
+    {\normal \textsc{Xth Year, Xth Semester}}
+}
+\newcommand{\titlecourse}{Course Title}
+\newcommand{\titlecover}{assets/sample-bg.png}
+\newcommand{\titleauthor}{Your Name}
+\newcommand{\titlesubtitle}{Course taught by prof. X X}
+\newcommand{\titlefooter}{\textsc{Your footer}}
+
 % Class related
 \newcommand{\maincol}[2]{ \definecolor{maindoccol}{#1}{#2} }
 \newcommand{\marleft}{25mm}
@@ -111,7 +124,6 @@
 \newcommand{\martop}{25mm}
 
 \newcommand{\sectionname}{Section}
-
 
 \renewcommand*\ttdefault{lmtt}
 
