@@ -492,7 +492,7 @@
     halign title=left,
     attach boxed title to bottom right = {
         xshift=-6mm,
-        yshift=5mm,
+        yshift=7mm,
     },
     boxed title style = {
         colback=white,
@@ -502,7 +502,7 @@
     enhanced,
     breakable,
     leftrule=3mm,
-    bottomrule=5mm,
+    bottomrule=6mm,
     enlarge top initially by=1.5mm,
     skin first=enhanced,
     skin middle=enhanced,
@@ -562,9 +562,9 @@
 
 %% --- TitleSec options
 
-\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{\chaptername}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}
+\titleformat{\chapter}[display]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{\chaptername}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}%
 
-%\titleformat{\section}[block]{\begin{tikzpicture}\draw[white](0,1) circle (0.1pt) node [anchor = south] {\thesection};draw[white](0,1) circle (0.1pt) node [anchor = north] {\textsc{\textcolor{gray!50}{\sectionname}}}\end{tikzpicture}}{0pt}{\quad}
+\titleformat{\section}[block]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}}{0pt}{#1}
 
 
 %% --- FancyHDR options
