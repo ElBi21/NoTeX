@@ -33,6 +33,7 @@
 \RequirePackage{titletoc}               % Package for customizing toc
 \RequirePackage{fancyhdr}               % Package for the HDR
 \RequirePackage{hyperref}               % Package for links
+\RequirePackage{csquotes}               % Package for quotes
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
@@ -137,6 +138,8 @@
 \vspace{12pt}
 
 }
+
+\setquotestyle{quotes}
 
 \contentsmargin{0cm}
 \titlecontents{chapter}[3.7pc]
@@ -481,6 +484,32 @@
         \filldraw[YellowGreen] ([xshift=9mm, yshift=-2mm]frame.north west) circle (1mm);
         \node[anchor=north] at ([yshift=0.1mm]frame.north) {\fontsize{8}{8}\selectfont\textcolor{white}{\texttt{Code Manual}}};
     },
+}
+
+\newtcolorbox{quotebox}[1]{
+    title=$\sim$ \textit{#1},
+    coltitle=black!70,
+    halign title=left,
+    attach boxed title to bottom right = {
+        xshift=-6mm,
+        yshift=5mm,
+    },
+    boxed title style = {
+        colback=white,
+    },
+    colback=white,
+    colframe=white,
+    enhanced,
+    breakable,
+    leftrule=3mm,
+    bottomrule=5mm,
+    enlarge top initially by=1.5mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    borderline west={5pt}{0pt}{gray},
+    coltext=black!70,
+    fontupper=\itshape
 }
 
 
