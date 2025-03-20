@@ -33,6 +33,7 @@
 \RequirePackage{titletoc}               % Package for customizing toc
 \RequirePackage{fancyhdr}               % Package for the HDR
 \RequirePackage{hyperref}               % Package for links
+\RequirePackage{csquotes}               % Package for quotes
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
@@ -47,6 +48,7 @@
 \RequirePackage{multirow}               % Package for multirows
 \RequirePackage{nicefrac}               % Package for better text fractions
 \RequirePackage{makecell}               % Package for better cell formatting
+\RequirePackage[linesnumbered,ruled,lined]{algorithm2e}
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 \DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
@@ -124,6 +126,7 @@
 \newcommand{\martop}{25mm}
 
 \newcommand{\sectionname}{Section}
+\newcommand\commentalg[1]{\textcolor{ForestGreen}{{\footnotesize #1}}}
 
 \renewcommand*\ttdefault{lmtt}
 
@@ -132,14 +135,19 @@
 \setlength{\tindent}{\parindent}
 \setlength{\parindent}{0pt}
 \renewcommand{\indent}{\hspace*{\tindent}}
-\newcommand{\nl}{
+\newcommand{\nwl}{
     
 \vspace{12pt}
 
 }
 
+\setquotestyle{quotes}
+
+\SetCommentSty{commentalg}
+
 \contentsmargin{0cm}
-\titlecontents{chapter}[3.7pc]
+\setlength{\headheight}{14.49998pt}
+\titlecontents{chapter}[44.4pt]
 {\addvspace{30pt}
 	\begin{tikzpicture}[remember picture, overlay]
 		\draw[fill=maindoccol!90,draw=maindoccol!90] (-7, -0.1) rectangle (-0.12, 0.5);
@@ -181,15 +189,15 @@
 \makeatother
 
 \newcommand{\notextoc}{
-\pagenumbering{Roman}
-\setcounter{page}{1}
-\pagestyle{plain}
-\pagebreak
-\tableofcontents
-\pagebreak
-\pagestyle{fancy}
-\setcounter{page}{0}
-\pagenumbering{arabic}
+    \pagenumbering{Roman}
+    \setcounter{page}{1}
+    \pagestyle{plain}
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+    \pagestyle{fancy}
+    \setcounter{page}{0}
+    \pagenumbering{arabic}
 }
 
 \hypersetup{
@@ -199,15 +207,15 @@
     urlcolor=MidnightBlue,
 }
 
-% Boxes commands
-\newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
-\newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
-\newcommand{\manlower}{\tcblower\fontsize{9}{9}\selectfont}
-
 % Counters
 \newcounter{examplecounter}
 \newcounter{exercisecounter}
 \setcounter{MaxMatrixCols}{20}
+
+% Boxes commands
+\newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
+\newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
+\newcommand{\manlower}{\tcblower\fontsize{9}{9}\selectfont}
 
 % Boxes
 \newtcolorbox{definition}[1]{
@@ -483,6 +491,32 @@
     },
 }
 
+\newtcolorbox{quotebox}[1]{
+    title=$\sim$ \textit{#1},
+    coltitle=black!70,
+    halign title=left,
+    attach boxed title to bottom right = {
+        xshift=-6mm,
+        yshift=7mm,
+    },
+    boxed title style = {
+        colback=white,
+    },
+    colback=white,
+    colframe=white,
+    enhanced,
+    breakable,
+    leftrule=3mm,
+    bottomrule=6mm,
+    enlarge top initially by=1.5mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    borderline west={5pt}{0pt}{gray},
+    coltext=black!70,
+    fontupper=\itshape
+}
+
 
 % LSTListing Style
 
@@ -533,9 +567,9 @@
 
 %% --- TitleSec options
 
-\titleformat{\chapter}[display]{\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{\chaptername}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}
+\titleformat{\chapter}[display]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{\chaptername}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}%
 
-%\titleformat{\section}[block]{\begin{tikzpicture}\draw[white](0,1) circle (0.1pt) node [anchor = south] {\thesection};draw[white](0,1) circle (0.1pt) node [anchor = north] {\textsc{\textcolor{gray!50}{\sectionname}}}\end{tikzpicture}}{0pt}{\quad}
+\titleformat{\section}[block]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}}{0pt}{#1}
 
 
 %% --- FancyHDR options
