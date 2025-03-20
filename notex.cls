@@ -48,6 +48,7 @@
 \RequirePackage{multirow}               % Package for multirows
 \RequirePackage{nicefrac}               % Package for better text fractions
 \RequirePackage{makecell}               % Package for better cell formatting
+\RequirePackage[linesnumbered,ruled,lined]{algorithm2e}
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 \DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
@@ -125,6 +126,7 @@
 \newcommand{\martop}{25mm}
 
 \newcommand{\sectionname}{Section}
+\newcommand\commentalg[1]{\textcolor{ForestGreen}{{\footnotesize #1}}}
 
 \renewcommand*\ttdefault{lmtt}
 
@@ -133,7 +135,7 @@
 \setlength{\tindent}{\parindent}
 \setlength{\parindent}{0pt}
 \renewcommand{\indent}{\hspace*{\tindent}}
-\newcommand{\nl}{
+\newcommand{\nwl}{
     
 \vspace{12pt}
 
@@ -141,8 +143,11 @@
 
 \setquotestyle{quotes}
 
+\SetCommentSty{commentalg}
+
 \contentsmargin{0cm}
-\titlecontents{chapter}[3.7pc]
+\setlength{\headheight}{14.49998pt}
+\titlecontents{chapter}[44.4pt]
 {\addvspace{30pt}
 	\begin{tikzpicture}[remember picture, overlay]
 		\draw[fill=maindoccol!90,draw=maindoccol!90] (-7, -0.1) rectangle (-0.12, 0.5);
@@ -184,15 +189,15 @@
 \makeatother
 
 \newcommand{\notextoc}{
-\pagenumbering{Roman}
-\setcounter{page}{1}
-\pagestyle{plain}
-\pagebreak
-\tableofcontents
-\pagebreak
-\pagestyle{fancy}
-\setcounter{page}{0}
-\pagenumbering{arabic}
+    \pagenumbering{Roman}
+    \setcounter{page}{1}
+    \pagestyle{plain}
+    \pagebreak
+    \tableofcontents
+    \pagebreak
+    \pagestyle{fancy}
+    \setcounter{page}{0}
+    \pagenumbering{arabic}
 }
 
 \hypersetup{
@@ -202,15 +207,15 @@
     urlcolor=MidnightBlue,
 }
 
-% Boxes commands
-\newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
-\newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
-\newcommand{\manlower}{\tcblower\fontsize{9}{9}\selectfont}
-
 % Counters
 \newcounter{examplecounter}
 \newcounter{exercisecounter}
 \setcounter{MaxMatrixCols}{20}
+
+% Boxes commands
+\newcommand{\boxdesc}[1]{\fontsize{6.5}{6.5}\selectfont\textcolor{white}{\textsc{#1}}}
+\newcommand{\codetextstyle}{\ttfamily\linespread{1}\fontsize{10}{10}\selectfont}
+\newcommand{\manlower}{\tcblower\fontsize{9}{9}\selectfont}
 
 % Boxes
 \newtcolorbox{definition}[1]{
