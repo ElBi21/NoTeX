@@ -236,6 +236,27 @@ You can edit the following parts by renewing the commands with the \verb|\renewc
 
 If you don't like the title page, you are free to edit it or to add your own version. If you want a more "classic" title page, you can use the \verb|\title|, \verb|\author| and all the other standard commands provided by \LaTeX.
 
+\begin{example}
+    The following example will produce the screenshot attached in the previous page:
+
+    \begin{codeblock}{main.tex}
+        \begin{lstlisting}[language = tex]
+\renewcommand{\titleheader}{
+    {\Large \textbf{\textsc{Your University}}}
+    \linebreak
+    {\large \textsc{Your Course}}
+
+    \vspace{0.05cm}
+    {\normal \textsc{Xth Year, Xth Semester}}
+}
+\renewcommand{\titlecourse}{Course Title}
+\renewcommand{\titlecover}{COURSE-bg.jpg}
+\renewcommand{\titleauthor}{Your Name}
+\renewcommand{\titlesubtitle}{Course taught by prof. X X}
+\renewcommand{\titlefooter}{Your footer}\end{lstlisting}
+    \end{codeblock}
+\end{example}
+
 \chapter{The \texttt{notexmacros} package}
 
 \noindent In this chapter the \texttt{notexmacro} package will be explained. Such package contains a collection of macros which can turn to be useful while using the class. The package is automatically required by the class, so you don't have to install anything else.
