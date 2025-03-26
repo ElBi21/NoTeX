@@ -5,10 +5,10 @@ on:
 
 jobs:
   run_tectonic:
-    name: Run tectonic on the repo
+    name: Build Documentation
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
+      - name: Checkout the repo
         uses: actions/checkout@v4
 
       - name: Install Tectonic
@@ -19,4 +19,3 @@ jobs:
       - name: Compile the template
         run: |
           ./tectonic "NoTeX Documentation.tex" -Z continue-on-errors --color=always
-
