@@ -2,8 +2,6 @@ on:
   push:
     branches:
     - main
-    - dev
-    - old
 
 jobs:
   run_tectonic:
@@ -20,5 +18,5 @@ jobs:
 
       - name: Compile the template
         run: |
-          ./tectonic main.tex -Z continue-on-errors --color=always
+          ./tectonic "NoTeX Documentation.tex" -Z continue-on-errors --color=always
 
