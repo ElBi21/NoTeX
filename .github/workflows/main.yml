@@ -7,6 +7,7 @@ jobs:
   run_tectonic:
     name: Build Documentation
     runs-on: ubuntu-latest
+    if: github.event.head_commit.author.email != 'github-actions[bot]@users.noreply.github.com'
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v4
@@ -19,3 +20,13 @@ jobs:
       - name: Compile the template
         run: |
           ./tectonic "NoTeX Documentation.tex" -Z continue-on-errors --color=always
+
+      - name: Commit and push PDF
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add "NoTeX Documentation.pdf"
+          git commit -m 'Add compiled documentation'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
