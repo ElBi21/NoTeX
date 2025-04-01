@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{notex}[2024 ElBi21 LaTeX class for taking notes]
+\ProvidesClass{notex}[2025-04-01 ElBi21 LaTeX class for taking notes]
 
 % Class outline:
 %  1. Load of the class - End of file
@@ -33,7 +33,7 @@
 \RequirePackage{titletoc}               % Package for customizing toc
 \RequirePackage{fancyhdr}               % Package for the HDR
 \RequirePackage{hyperref}               % Package for links
-\RequirePackage{csquotes}               % Package for quotes
+\RequirePackage[linesnumbered,ruled,lined]{./algorithm2e} % Package for the algorithms
 
 \RequirePackage[T1]{fontenc}            % Package for font encoding
 \RequirePackage{fouriernc}              % Package with the font
@@ -48,7 +48,10 @@
 \RequirePackage{multirow}               % Package for multirows
 \RequirePackage{nicefrac}               % Package for better text fractions
 \RequirePackage{makecell}               % Package for better cell formatting
-\RequirePackage[linesnumbered,ruled,lined]{algorithm2e}
+%\RequirePackage{currfile}
+
+%\graphicspath{{front_logos}{\currfileabsdir}}
+
 
 \tcbuselibrary{most}                    % Loads tcolorbox options
 \DeclareMathAlphabet{\mathcal}{OMS}{zplm}{m}{n}
@@ -140,8 +143,6 @@
 \vspace{12pt}
 
 }
-
-\setquotestyle{quotes}
 
 \SetCommentSty{commentalg}
 
@@ -565,11 +566,15 @@
 
 \lstset{style=notexstand}
 
+
 %% --- TitleSec options
 
 \titleformat{\chapter}[display]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{\chaptername}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}%
 
-\titleformat{\section}[block]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}}{0pt}{#1}
+\titleformat{\section}[display]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}}{\hspace{-36pt}\begin{tikzpicture}
+\draw[maindoccol!30, thick] (0, 0) circle (16pt) node [above] {\textcolor{black!80}{\bfseries\textsc{\sectionname}}};
+\draw[white] (0, 0) circle (0pt) node [below, yshift=6pt] {\vspace{-4pt}\textcolor{black!90}{\bfseries\fontsize{24pt}{24pt}\selectfont\textsc{\thesection}}};
+\end{tikzpicture}}{0pt}{\vspace{-27pt}\hspace{32pt}\fontsize{16pt}{16pt}\bfseries\selectfont}[\vspace{10pt}]
 
 
 %% --- FancyHDR options
