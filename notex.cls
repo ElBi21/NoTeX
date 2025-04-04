@@ -572,8 +572,9 @@
 \titleformat{\chapter}[display]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}\vspace{-40pt}\fontsize{20pt}{20pt}\selectfont}{\textsc{\textcolor{gray!50}{\raisebox{43pt}{\chaptername}}\textcolor{gray!30}{\fontsize{120pt}{120pt}\selectfont{\thechapter}}}}{0pt}{\vspace{-47pt}\fontsize{24pt}{24pt}\selectfont\quad}%
 
 \titleformat{\section}[display]{\setcounter{examplecounter}{1} \setcounter{exercisecounter}{1}}{\hspace{-36pt}\begin{tikzpicture}
-\draw[maindoccol!30, thick] (0, 0) circle (16pt) node [above] {\textcolor{black!80}{\bfseries\textsc{\sectionname}}};
-\draw[white] (0, 0) circle (0pt) node [below, yshift=6pt] {\vspace{-4pt}\textcolor{black!90}{\bfseries\fontsize{24pt}{24pt}\selectfont\textsc{\thesection}}};
+\draw[maindoccol!50] (0, 0) circle (17pt);
+\fill[maindoccol!30, thick] (0, 0) circle (16pt) node [above] {\textcolor{black!80}{\bfseries\textsc{\sectionname}}};
+\draw[white] (0, 0) circle (0pt) node [below, yshift=6pt] {\vspace{-4pt}\textcolor{maindoccol!90}{\bfseries\fontsize{24pt}{24pt}\selectfont\textsc{\thesection}}};
 \end{tikzpicture}}{0pt}{\vspace{-27pt}\hspace{32pt}\fontsize{16pt}{16pt}\bfseries\selectfont}[\vspace{10pt}]
 
 
