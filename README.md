@@ -6,9 +6,9 @@
 
 ## Yeah sure, but what **_IS_** NoTeX to begin with?
 
-In this repository I want to publish the template that I use for taking notes during university classes. I will update it from time to time. If you want to see my notes they'll eventually be uploaded in an (_maybe_) accesible cloud, since I'm not feeling like sharing them at the moment.
+In this repository you'll find the template that I use for taking notes during university classes. I will update it from time to time, mostly when I get bored of my own work and want to revamp it graphically. Nevertheless, I'll try to stick to a specific, "_simple_" style.
 
-The template is under GPL license, and you are free to use my template. It's fine if you want to edit the template, based on your needs, but please don't edit a couple lines and then sell it as your own template.
+The template is under GPL license, and you are free to use it as you please (except for illegal stuff (who'd use LaTeX outside of the academy world anyway?))
 
 ---
 
