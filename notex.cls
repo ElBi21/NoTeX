@@ -361,6 +361,24 @@
     },
 }
 
+\newtcolorbox{longproof}{
+    colback=proofBG!25,
+    colframe=proofBG!90,
+    enhanced,
+    breakable,
+    rounded corners=all,
+    arc=1mm,
+    sharp corners=north,
+    leftrule=3mm,
+    skin first=enhanced,
+    skin middle=enhanced,
+    skin last=enhanced,
+    enlarge top by=-3.5mm,
+    overlay={
+        \node[rotate=90, anchor=east] at ([xshift=1.5mm, yshift=-1.1mm]frame.north west) {\boxdesc{Proof}};
+    },
+}
+
 \newtcolorbox{exercise}{
     title=\fontfamily{ppl}\selectfont{{\fontsize{8}{8}\selectfont \faPencil*} \; \thesection.\theexercisecounter \addtocounter{exercisecounter}{1}},
     coltitle=black,
